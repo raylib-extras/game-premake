@@ -44,8 +44,8 @@ Put the premake5. Exe into your game folder.
 ![image](https://user-images.githubusercontent.com/322174/107884989-964d2300-6eac-11eb-8715-088710243ee5.png)
 
 ## Download the premake5.lua file from raylibExras
-Download the premake5.lua and premake-2019.bat files from
-https://github.com/JeffM2501/raylibExtras/tree/index/Premake/Game
+Download the premake5.lua and premake-2019.bat files from this repository
+https://github.com/raylib-extras/game-premake
 
 ![image](https://user-images.githubusercontent.com/322174/107885001-9fd68b00-6eac-11eb-90b2-04569ec08e50.png)
 Copy them into your game folder.

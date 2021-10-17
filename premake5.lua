@@ -1,3 +1,9 @@
+newoption 
+{
+   trigger = "opengl43",
+   description = "use OpenGL 4.3"
+}
+
 workspace "YourGame"
 	configurations { "Debug","Debug.DLL", "Release", "Release.DLL" }
 	platforms { "x64"}
@@ -23,8 +29,13 @@ workspace "YourGame"
 		
 	targetdir "bin/%{cfg.buildcfg}/"
 	
-	defines{"PLATFORM_DESKTOP", "GRAPHICS_API_OPENGL_33"}
-		
+	defines{"PLATFORM_DESKTOP"}
+	if (_OPTIONS["opengl43"]) then
+		defines{"GRAPHICS_API_OPENGL_43"}
+	else
+		defines{"GRAPHICS_API_OPENGL_33"}
+	end
+	
 project "raylib"
 		filter "configurations:Debug.DLL OR Release.DLL"
 			kind "SharedLib"

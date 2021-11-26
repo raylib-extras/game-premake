@@ -6,7 +6,7 @@ newoption
 
 workspace "YourGame"
 	configurations { "Debug","Debug.DLL", "Release", "Release.DLL" }
-	platforms { "x64"}
+	platforms { "x64", "x86"}
 
 	filter "configurations:Debug"
 		defines { "DEBUG" }
@@ -44,11 +44,11 @@ project "raylib"
 		filter "configurations:Debug OR Release"
 			kind "StaticLib"
 			
-		filter "action:vs*"
+		filter "system:windows"
 			defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}
-			links {"winmm"}
+			links {"winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
 			
-		filter "action:gmake*"
+		filter "system:linux"
 			links {"pthread", "GL", "m", "dl", "rt", "X11"}
 			
 		filter{}
@@ -86,11 +86,10 @@ project "YourGame"
 	includedirs { "%{wks.name}", "raylib/src" }
 	defines{"PLATFORM_DESKTOP", "GRAPHICS_API_OPENGL_33"}
 	
-	filter "action:vs*"
+	filter "system:windows"
 		defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}
-		dependson {"raylib"}
-		links {"raylib.lib", "winmm", "kernel32"}
+		links {"raylib", "winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
 		libdirs {"bin/%{cfg.buildcfg}"}
 		
-	filter "action:gmake*"
+	filter "system:linux"
 		links {"pthread", "GL", "m", "dl", "rt", "X11"}

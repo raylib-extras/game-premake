@@ -28,14 +28,7 @@ workspace "YourGame"
 		architecture "x86_64"
 		
 	targetdir "bin/%{cfg.buildcfg}/"
-	
-	defines{"PLATFORM_DESKTOP"}
-	if (_OPTIONS["opengl43"]) then
-		defines{"GRAPHICS_API_OPENGL_43"}
-	else
-		defines{"GRAPHICS_API_OPENGL_33"}
-	end
-	
+
 project "raylib"
 		filter "configurations:Debug.DLL OR Release.DLL"
 			kind "SharedLib"
@@ -53,6 +46,13 @@ project "raylib"
 			
 		filter{}
 		
+		defines{"PLATFORM_DESKTOP"}
+		if (_OPTIONS["opengl43"]) then
+			defines{"GRAPHICS_API_OPENGL_43"}
+		else
+			defines{"GRAPHICS_API_OPENGL_33"}
+		end
+	
 		location "build"
 		language "C++"
 		targetdir "bin/%{cfg.buildcfg}"
@@ -84,7 +84,14 @@ project "YourGame"
 	links {"raylib"}
 	
 	includedirs { "%{wks.name}", "raylib/src" }
-	defines{"PLATFORM_DESKTOP", "GRAPHICS_API_OPENGL_33"}
+	
+	defines{"PLATFORM_DESKTOP"}
+	if (_OPTIONS["opengl43"]) then
+		defines{"GRAPHICS_API_OPENGL_43"}
+	else
+		defines{"GRAPHICS_API_OPENGL_33"}
+	end
+	
 	
 	filter "system:windows"
 		defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}

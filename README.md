@@ -1,14 +1,14 @@
 # Raylib Setup using Premake5
 
-This is a premake sript to build games with raylib. Premake works by creating a build system for differnet platforms to use.
-This setup is designed to work with the follwing platforms/compilers
+This is a premake sript to build games with raylib. Premake works by creating a build system for different platforms to use.
+This setup is designed to work with the following platforms/compilers
 
 * Windows - Visual Studio 2019
 * Windows - Mingw-w64
 * Linux - GCC
 
 ## Common Instructions
-These steps setup the basic source code needed, and are applied to all platforms.
+These steps setup the basic source code needed and are applied to all platforms.
 
 ### Create a folder for your game
 Create a folder for you game. It can be anywhere on your computer.
@@ -90,7 +90,7 @@ Double click the sln file to open your game project in Visual Studio. It will in
 ![image](https://user-images.githubusercontent.com/322174/107885046-d2808380-6eac-11eb-8c67-1cb923303c7b.png)
 
 ## Mingw-w64
-These are the inastructions for Mingw-w64, do these after you do the common steps above. 
+These are the instructions for Mingw-w64, do these after you do the common steps above. 
 
 ### Get a modern verison of MinGW
 devkit is a great way to get it.
@@ -103,7 +103,7 @@ Double click the premake-mingw.bat file, or run it from a console. This will gen
 Open a mingw terminal and run make in your game folder. This will build your game into the bin folder.
 
 ## Linux GCC
-These are the inastructions for gcc on linux, do these after you do the common steps above. 
+These are the instructions for gcc on linux, do these after you do the common steps above. 
 
 ### Run premake
 run the command premake5 gmake2. This will generate all the makefiles for the game. You will end up with a MAKEFILE file for your game in the root folder.

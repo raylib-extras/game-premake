@@ -89,10 +89,10 @@ Double click the sln file to open your game project in Visual Studio. It will in
 
 ![image](https://user-images.githubusercontent.com/322174/107885046-d2808380-6eac-11eb-8c67-1cb923303c7b.png)
 
-## Mingw-w64
+## MinGW-w64
 These are the instructions for Mingw-w64, do these after you do the common steps above. 
 
-### Get a modern verison of MinGW
+### Get a modern version of MinGW-w64
 devkit is a great way to get it.
 https://github.com/skeeto/w64devkit
 

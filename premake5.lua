@@ -37,8 +37,12 @@ project "raylib"
 		filter "configurations:Debug OR Release"
 			kind "StaticLib"
 			
+		filter "action:vs*"
+			defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
+			characterset ("MBCS")
+		
 		filter "system:windows"
-			defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}
+			defines{"_WIN32"}
 			links {"winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
 			
 		filter "system:linux"
@@ -54,9 +58,8 @@ project "raylib"
 		end
 	
 		location "build"
-		language "C++"
+		language "C"
 		targetdir "bin/%{cfg.buildcfg}"
-		cppdialect "C++17"
 		
 		includedirs { "raylib/src", "raylib/src/external/glfw/include"}
 		vpaths 
@@ -92,10 +95,15 @@ project "YourGame"
 		defines{"GRAPHICS_API_OPENGL_33"}
 	end
 	
-	
-	filter "system:windows"
+	filter "action:vs*"
 		defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}
-		links {"raylib", "winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
+		dependson {"raylib"}
+		links {"raylib.lib"}
+        characterset ("MBCS")
+		
+	filter "system:windows"
+		defines{"_WIN32"}
+		links {"winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
 		libdirs {"bin/%{cfg.buildcfg}"}
 		
 	filter "system:linux"

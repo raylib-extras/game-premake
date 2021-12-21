@@ -76,7 +76,6 @@ project "YourGame"
 	targetdir "bin/%{cfg.buildcfg}"
 	cppdialect "C++17"
 	
-	includedirs {"src"}
 	vpaths 
 	{
 		["Header Files"] = { "**.h"},

@@ -4,7 +4,7 @@ This is a premake sript to build games with raylib. Premake works by creating a 
 This setup is designed to work with the following platforms/compilers
 
 * Windows - Visual Studio 2019
-* Windows - Mingw-w64
+* Windows - Mingw-w64  https://youtu.be/4hWm8ieg4oM
 * Linux - GCC
 
 ## Common Instructions

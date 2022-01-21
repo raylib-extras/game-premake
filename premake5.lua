@@ -27,6 +27,9 @@ workspace "YourGame"
 	filter { "platforms:x64" }
 		architecture "x86_64"
 		
+	filter { "platforms:x86" }
+		architecture "x86"
+
 	targetdir "bin/%{cfg.buildcfg}/"
 
 project "raylib"

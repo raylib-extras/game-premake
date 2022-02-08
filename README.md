@@ -31,7 +31,7 @@ Extract the zip file, or copy the cloned raylib repository into a folder named r
 This folder should contain all the raylib source code files
 
 ### Setup your game's source code
-Make a folder for your actual game’s source code. In this case we will be starting with the “advanced game” template from the raylib sources, since it is a great place to start any project from. Be sure to copy at least one C or CPP file that has a main function into this folder. If you are unsure what to do , simply copy the code from one of the examples.
+Make a folder for your actual game's source code (the MyCoolGame folder in the image below, but you might want a more descriptive name like "source", or similar for your own  project). In this case we will be starting with the "advanced game" template from the raylib sources, since it is a great place to start any project from. Be sure to copy at least one C or CPP file that has a main function into this folder. If you are unsure what to do , simply copy the code from one of the examples. If the generated project can not find the source file(s), it will not be able to build properly!
 
 ![image](https://user-images.githubusercontent.com/322174/107885011-b0870100-6eac-11eb-889d-7a39bc5b3cdb.png)
 
@@ -91,6 +91,7 @@ The same premake system can be used on linux, just use the command premake5 gmak
 
 ### Open your .sln file
 Double click the sln file to open your game project in Visual Studio. It will include both your game files and the raylib library, all ready to build.
+Note: If you have a newer version of Visual Studio installed, you might get a dialog called _Retarget Projects_ when you open the solution. The solution should still be able to compile if you chose to retarget the project.
 
 ![image](https://user-images.githubusercontent.com/322174/107885046-d2808380-6eac-11eb-8c67-1cb923303c7b.png)
 

@@ -27,6 +27,7 @@ Do not use the folder from the windows installer, it does not have the correct s
 Extract the zip file, or copy the cloned raylib repository into a folder named raylib in your game folder. source code.
 
 ![image](https://user-images.githubusercontent.com/322174/107884970-833a5300-6eac-11eb-80a8-ae5bae854e94.png)
+
 This folder should contain all the raylib source code files
 
 ### Setup your game's source code
@@ -45,8 +46,8 @@ Put the premake5 executable into your game folder.
 
 ![image](https://user-images.githubusercontent.com/322174/107884989-964d2300-6eac-11eb-8715-088710243ee5.png)
 
-### Copy the premake5.lua file
-Download the premake5.lua file from this repository
+### Download premake5.lua and premake-2019.bat
+Download these two files from this repository
 https://github.com/raylib-extras/game-premake
 
 ![image](https://user-images.githubusercontent.com/322174/107885001-9fd68b00-6eac-11eb-90b2-04569ec08e50.png)
@@ -64,6 +65,7 @@ Save the file and close it.
 
 ## Visual Studio 2019 instructions
 These are the instructions for Visual Studio 2019, do these after you do the common steps above.
+Note: If you have a newer version of Visual Studio than 2019, it will probably work with that too.
 
 ### Download Visual Studio 2019
 Get Visual Studio from https://visualstudio.microsoft.com/downloads/
@@ -78,7 +80,10 @@ Be sure to install the Desktop development with C++ and Universal Windows Platfo
 ![image](https://user-images.githubusercontent.com/322174/107884951-6b62cf00-6eac-11eb-8d25-8e6fd3f9fdba.png)
 
 ### Run premake-2019.bat
-Double click the premake-2019.bat file, or run it from a console. This will generate all the visual studio project files for the game. You will end up with a .sln file for your game in the root folder.
+Double click the premake-2019.bat file, or run it from a console.
+If you wish to run the .bat file from a console, open Command Prompt (cmd) or Powershell, then go to the folder you placed the .bat file in, type its name and hit Enter. Or just simply drag the file to the console window (you still need to enter that folder inside the console, otherwise the .bat file can not find the premake executable!).
+
+This will generate all the Visual Studio project files for the game. You will end up with a .sln file for your game in the root folder.
 
 ![image](https://user-images.githubusercontent.com/322174/107885039-c8f71b80-6eac-11eb-8b04-df2e5c9142a6.png)
 

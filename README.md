@@ -30,8 +30,12 @@ Extract the zip file, or copy the cloned raylib repository into a folder named r
 
 This folder should contain all the raylib source code files
 
-### Setup your game's source code
-Make a folder for your actual game's source code (the MyCoolGame folder in the image below, but you might want a more descriptive name like "source", or similar for your own  project). In this case we will be starting with the "advanced game" template from the raylib sources, since it is a great place to start any project from. Be sure to copy at least one C or CPP file that has a main function into this folder. If you are unsure what to do , simply copy the code from one of the examples. If the generated project can not find the source file(s), it will not be able to build properly!
+### Setup your game's project folder
+Make a folder for your game project. Inside the folder you just created, place your game's source code - or at least one C or CPP file that has a main function (you can, if you want, place the source file(s) in a subfolder to keep them separate from other stuff. You can name the subfolder anything you want).
+In this case, we will be starting with the "advanced game" template from the raylib sources, since it is a great place to start any project from.
+
+If you do not have any source code files on hand, simply copy the code from one of the examples. 
+If the generated project can not find the source file(s), it will not be able to build properly!
 
 ![image](https://user-images.githubusercontent.com/322174/107885011-b0870100-6eac-11eb-889d-7a39bc5b3cdb.png)
 
@@ -51,12 +55,13 @@ Download these two files from this repository
 https://github.com/raylib-extras/game-premake
 
 ![image](https://user-images.githubusercontent.com/322174/107885001-9fd68b00-6eac-11eb-90b2-04569ec08e50.png)
+
 Copy it into your game folder.
 
 
 ### Setup premake5.lua file
 Open the premake5.lua file in notepad++ or some other text editor.
-Find the two instances of “YourGame” and replace them with the name of your game project.
+Find the two instances of “YourGame” and replace them with the name of your game project folder.
 
 ![image](https://user-images.githubusercontent.com/322174/107885020-b7ae0f00-6eac-11eb-8a20-d0ba0747a51d.png)
 ![image](https://user-images.githubusercontent.com/322174/107885030-c09ee080-6eac-11eb-8190-b5a2e2a2bec3.png)

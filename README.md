@@ -10,10 +10,16 @@ This setup is designed to work with the following platforms/compilers
 ## Common Instructions
 These steps setup the basic source code needed and are applied to all platforms.
 
-### Create a folder for your game
-Create a folder for you game. It can be anywhere on your computer.
+### Create a folder for your project
+Create a folder for you project. It can be anywhere on your computer.
 
 ![image](https://user-images.githubusercontent.com/322174/107884955-7158b000-6eac-11eb-97b7-5605c7ed34d1.png)
+
+### Get the files from this repository
+Download all the files form thi repository
+https://github.com/raylib-extras/game-premake
+
+Copy all these files into your game project folders.
 
 ### Download the Raylib Sources
 Download the raylib source code, from
@@ -45,22 +51,8 @@ Put the premake5 executable into your game folder.
 
 ![image](https://user-images.githubusercontent.com/322174/107884989-964d2300-6eac-11eb-8715-088710243ee5.png)
 
-### Copy the premake5.lua file
-Download the premake5.lua file from this repository
-https://github.com/raylib-extras/game-premake
-
-![image](https://user-images.githubusercontent.com/322174/107885001-9fd68b00-6eac-11eb-90b2-04569ec08e50.png)
-Copy it into your game folder.
-
-
-### Setup premake5.lua file
-Open the premake5.lua file in notepad++ or some other text editor.
-Find the two instances of “YourGame” and replace them with the name of your game project.
-
-![image](https://user-images.githubusercontent.com/322174/107885020-b7ae0f00-6eac-11eb-8a20-d0ba0747a51d.png)
-![image](https://user-images.githubusercontent.com/322174/107885030-c09ee080-6eac-11eb-8190-b5a2e2a2bec3.png)
-
-Save the file and close it.
+### Setup game premake
+Copy the premake5.lua from _app folder and put it in your game's source code folder.
 
 ## Visual Studio 2019 instructions
 These are the instructions for Visual Studio 2019, do these after you do the common steps above.
@@ -116,6 +108,9 @@ Run make in a terminal to build your game. This will build your game into the bi
 You can now build, debug, and run your game using your chosen compiler tool chain
 
 ![image](https://user-images.githubusercontent.com/322174/107885060-de6c4580-6eac-11eb-87a5-9a209cb03a7a.png)
+
+# Adding a static lib
+If you want to add a static library with your own code, simply make a folder with that code and copy the premake5.lua file from _lib into your folder, and re-run the batch file.
 
 #Optional
 ## premake-2019 - OpenGL 4.3.bat

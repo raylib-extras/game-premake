@@ -29,12 +29,12 @@ This will generate a Visual Studio project.
 	
 ## MinGW-w64 Users
 Run the batch file.
-	premake-mingw.bat
+    premake-mingw.bat
 This will generate a makefile for you
 	
 ## Linux users
 cd to the game folder and run
-	./premake5 gmake2
+    ./premake5 gmake2
 This will generate a makefile for you.
 	
 # Build your game
@@ -45,11 +45,15 @@ From here you can use the prouject as normal.
 	
 ## MinGW-w64 Users
 Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 
-	make
+
+    make
+	
 This will build your game
 	
 ## Linux users
-Open your terminal, change to the game folder and type 
-	make
+Open your terminal, change to the game folder and type.
+
+    make
+	
 This will build your game
 	

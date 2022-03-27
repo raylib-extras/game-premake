@@ -24,17 +24,23 @@ For windows users, there are two batch files you can use depending on what compi
 Only do ONE of these options depending on your compiler and platform.
 ## Windows Users
 Visual Studio users should run
-	premake-VisualStudio.bat
+
+    premake-VisualStudio.bat
+	
 This will generate a Visual Studio project.
 	
 ## MinGW-w64 Users
 Run the batch file.
+
     premake-mingw.bat
+
 This will generate a makefile for you
 	
 ## Linux users
 cd to the game folder and run
+
     ./premake5 gmake2
+
 This will generate a makefile for you.
 	
 # Build your game

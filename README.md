@@ -23,27 +23,33 @@ By default this process is setup to build a project using C. If you want to use 
 For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.
 Only do ONE of these options depending on your compiler and platform.
 ## Windows Users
-	Visual Studio users should run premake-VisualStudio.bat. This will generate a Visual Studio project.
+Visual Studio users should run
+	premake-VisualStudio.bat
+This will generate a Visual Studio project.
 	
 ## MinGW-w64 Users
-	Run the premake-mingw.bat file. This will generate a makefile for you
+Run the batch file.
+	premake-mingw.bat
+This will generate a makefile for you
 	
 ## Linux users
-	cd to the game folder and run ./premake5 gmake2. This will generate a makefile for you.
+cd to the game folder and run
+	./premake5 gmake2
+This will generate a makefile for you.
 	
 # Build your game
 Only do ONE of these options depending on your compiler and platform.
 ## Windows Users
-	Double click the .sln file that was generated in the folder. If you are using Visual Studio 2022 you will be asked to upgrade the project, the defaults are fine, accept them and it will load.
-	From here you can use the prouject as normal.
+Double click the .sln file that was generated in the folder. If you are using Visual Studio 2022 you will be asked to upgrade the project, the defaults are fine, accept them and it will load.
+From here you can use the prouject as normal.
 	
 ## MinGW-w64 Users
-	Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 
+Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 
 	make
-	This will build your game
+This will build your game
 	
 ## Linux users
-	Open your terminal, change to the game folder and type 
+Open your terminal, change to the game folder and type 
 	make
-	This will build your game
+This will build your game
 	

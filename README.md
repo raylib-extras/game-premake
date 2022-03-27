@@ -1,117 +1,49 @@
 # Raylib Setup using Premake5
+This is a simplified set of instructions for how to setup a project using premake.
 
-This is a premake sript to build games with raylib. Premake works by creating a build system for different platforms to use.
-This setup is designed to work with the following platforms/compilers
+# Download this repository
+Download the game premake repository from 
+https://github.com/raylib-extras/game-premake/tree/no_edit
+Download the zip file, or clone the repository. It doens't matter what one you use.
+Rename the folder whatever you want. This will be where your entire game proejct will be located.
 
-* Windows - Visual Studio 2019
-* Windows - Mingw-w64  https://youtu.be/4hWm8ieg4oM
-* Linux - GCC
-
-## Common Instructions
-These steps setup the basic source code needed and are applied to all platforms.
-
-### Create a folder for your project
-Create a folder for you project. It can be anywhere on your computer.
-
-![image](https://user-images.githubusercontent.com/322174/107884955-7158b000-6eac-11eb-97b7-5605c7ed34d1.png)
-
-### Get the files from this repository
-Download all the files form thi repository
-https://github.com/raylib-extras/game-premake
-
-Copy all these files into your game project folders.
-
-### Download the Raylib Sources
-Download the raylib source code, from
+# Download raylib
+Get the raylib sources from 
 https://github.com/raysan5/raylib
-You can get the zip file or clone the repository in git, both will work the same.
-Do not use the folder from the windows installer, it does not have the correct structure.
+Download the zip file, or clone the repository. It doens't matter what one you use.
+Put the raylib sources in a folder called raylib inside your game folder (The same folder this file is in). The folder must be named raylib, it can not be raylib-master. The raylib folder should contain all the sources from raylib (including the 'src' folder)
 
-![image](https://user-images.githubusercontent.com/322174/107884966-7b7aae80-6eac-11eb-9f36-dc48f719a74d.png)
+# Rename the _app folder 
+Rename the _app folder to whatever you want your game's executable name to be.
 
-### Copy Raylib into your game folder
-Extract the zip file, or copy the cloned raylib repository into a folder named raylib in your game folder. source code.
+## Using C++
+By default this process is setup to build a project using C. If you want to use C++, simply rename the main.c file that is inside the _app folder to main.cpp. The scripts will take care of the rest.
 
-![image](https://user-images.githubusercontent.com/322174/107884970-833a5300-6eac-11eb-80a8-ae5bae854e94.png)
-This folder should contain all the raylib source code files
-
-### Setup your game's source code
-Make a folder for your actual game’s source code. In this case we will be starting with the “advanced game” template from the raylib sources, since it is a great place to start any project from. Be sure to copy at least one C or CPP file that has a main function into this folder. If you are unsure what to do , simply copy the code from one of the examples.
-
-![image](https://user-images.githubusercontent.com/322174/107885011-b0870100-6eac-11eb-889d-7a39bc5b3cdb.png)
-
-### Download Premake5
-Download premake version 5.0 from https://premake.github.io/
-
-![image](https://user-images.githubusercontent.com/322174/107884980-8f261500-6eac-11eb-8800-2bf485d1c2b0.png)
-
-https://premake.github.io/download.html#v5
- 
-Put the premake5 executable into your game folder.
-
-![image](https://user-images.githubusercontent.com/322174/107884989-964d2300-6eac-11eb-8715-088710243ee5.png)
-
-### Setup game premake
-Copy the premake5.lua from _app folder and put it in your game's source code folder.
-
-## Visual Studio 2019 instructions
-These are the instructions for Visual Studio 2019, do these after you do the common steps above.
-
-### Download Visual Studio 2019
-Get Visual Studio from https://visualstudio.microsoft.com/downloads/
-The community edition is free and is perfectly suited for game development with raylib.
-
-![image](https://user-images.githubusercontent.com/322174/107884936-4c643d00-6eac-11eb-8831-78421ff75099.png)
-
-### Install Visual Studio
-Run the installer to put Visual Studio 2019 on your computer. See https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160 for more info.
-Be sure to install the Desktop development with C++ and Universal Windows Platform development workflows.
-
-![image](https://user-images.githubusercontent.com/322174/107884951-6b62cf00-6eac-11eb-8d25-8e6fd3f9fdba.png)
-
-### Run premake-2019.bat
-Double click the premake-2019.bat file, or run it from a console. This will generate all the visual studio project files for the game. You will end up with a .sln file for your game in the root folder.
-
-![image](https://user-images.githubusercontent.com/322174/107885039-c8f71b80-6eac-11eb-8b04-df2e5c9142a6.png)
-
-The same premake system can be used on linux, just use the command premake5 gmake instead of premake5 vs2019
-
-### Open your .sln file
-Double click the sln file to open your game project in Visual Studio. It will include both your game files and the raylib library, all ready to build.
-
-![image](https://user-images.githubusercontent.com/322174/107885046-d2808380-6eac-11eb-8c67-1cb923303c7b.png)
-
-## MinGW-w64
-These are the instructions for Mingw-w64, do these after you do the common steps above. 
-
-### Get a modern version of MinGW-w64
-devkit is a great way to get it.
-https://github.com/skeeto/w64devkit
-
-### Run premake-mingw.bat
-Double click the premake-mingw.bat file, or run it from a console. This will generate all the makefiles for the game. You will end up with a MAKEFILE file for your game in the root folder.
-
-### Build with Mingw-w64
-Open a mingw terminal and run make in your game folder. This will build your game into the bin folder.
-
-## Linux GCC
-These are the instructions for gcc on linux, do these after you do the common steps above. 
-
-### Run premake
-run the command premake5 gmake2. This will generate all the makefiles for the game. You will end up with a MAKEFILE file for your game in the root folder.
-
-### Build with gcc
-Run make in a terminal to build your game. This will build your game into the bin folder.
-
-  
-## Develop your game.
-You can now build, debug, and run your game using your chosen compiler tool chain
-
-![image](https://user-images.githubusercontent.com/322174/107885060-de6c4580-6eac-11eb-87a5-9a209cb03a7a.png)
-
-# Adding a static lib
-If you want to add a static library with your own code, simply make a folder with that code and copy the premake5.lua file from _lib into your folder, and re-run the batch file.
-
-#Optional
-## premake-2019 - OpenGL 4.3.bat
-This builds raylib with support for OpenGL 4.3 (requires raylib 4.0)
+# Generate Projects
+For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.
+Only do ONE of these options depending on your compiler and platform.
+## Windows Users
+	Visual Studio users should run premake-VisualStudio.bat. This will generate a Visual Studio project.
+	
+## MinGW-w64 Users
+	Run the premake-mingw.bat file. This will generate a makefile for you
+	
+## Linux users
+	cd to the game folder and run ./premake5 gmake2. This will generate a makefile for you.
+	
+# Build your game
+Only do ONE of these options depending on your compiler and platform.
+## Windows Users
+	Double click the .sln file that was generated in the folder. If you are using Visual Studio 2022 you will be asked to upgrade the project, the defaults are fine, accept them and it will load.
+	From here you can use the prouject as normal.
+	
+## MinGW-w64 Users
+	Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 
+	make
+	This will build your game
+	
+## Linux users
+	Open your terminal, change to the game folder and type 
+	make
+	This will build your game
+	

@@ -11,6 +11,11 @@ function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
 
+function link_to(lib)
+	links (lib)
+	includedirs ("../"..lib)
+end
+
 baseName = path.getbasename(os.getcwd())
 
 workspace (baseName)

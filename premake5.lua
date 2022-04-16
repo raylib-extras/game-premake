@@ -19,25 +19,17 @@ end
 baseName = path.getbasename(os.getcwd())
 
 workspace (baseName)
-    configurations { "Debug","Debug.DLL", "Release", "Release.DLL" }
+    configurations { "Debug", "Release"}
     platforms { "x64", "x86"}
 
     filter "configurations:Debug"
         defines { "DEBUG" }
         symbols "On"
         
-    filter "configurations:Debug.DLL"
-        defines { "DEBUG" }
-        symbols "On"
-
     filter "configurations:Release"
         defines { "NDEBUG" }
         optimize "On"    
-        
-    filter "configurations:Release.DLL"
-        defines { "NDEBUG" }
-        optimize "On"    
-        
+
     filter { "platforms:x64" }
         architecture "x86_64"
         
@@ -48,7 +40,7 @@ include ("raylib_premake5.lua")
 folders = os.matchdirs("*")
 
 for _, folderName in ipairs(folders) do
-	if (folderName ~= "raylib" and folderName ~= "build" and folderName ~= "build" and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
+	if (folderName ~= "raylib" and folderName ~= "build" and folderName ~= "bin" and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
 		print(folderName)
 		include (folderName)
 	end

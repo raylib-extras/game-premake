@@ -32,29 +32,24 @@ function setup_raylib()
         
     filter "system:linux"
         links {"pthread", "GL", "m", "dl", "rt", "X11"}
+		
+	filter{}
 end
 
 project "raylib"
-    filter "configurations:Debug.DLL OR Release.DLL"
-        kind "SharedLib"
-        defines {"BUILD_LIBTYPE_SHARED"}
+    kind "StaticLib"
         
-    filter "configurations:Debug OR Release"
-        kind "StaticLib"
-        
-    filter "system:windows"
-        defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_WIN32"}
-        links {"winmm", "kernel32", "opengl32", "kernel32", "gdi32"}
-        
-    filter "system:linux"
-        links {"pthread", "GL", "m", "dl", "rt", "X11"}
-        
-    filter{}
     platform_defines()
     
     location "build"
     language "C"
     targetdir "bin/%{cfg.buildcfg}"
+	
+	 filter "action:vs*"
+        defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
+        characterset ("MBCS")
+		
+	filter{}
     
     includedirs { "raylib/src", "raylib/src/external/glfw/include"}
     vpaths 

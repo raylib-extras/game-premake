@@ -1,6 +1,10 @@
 # Raylib Setup using Premake5
 This is a simplified set of instructions for how to setup a project using premake.
 
+## Video Tutorial
+A video covering this process is here
+https://youtu.be/oHIh01L6xQQ
+
 # Download this repository
 Download the game premake repository from 
 https://github.com/raylib-extras/game-premake/tree/no_edit

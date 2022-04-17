@@ -13,10 +13,22 @@ function platform_defines()
     end
 end
 
+function get_raylib_dir()
+    if (os.isdir("raylib-master")) then
+        return "raylib-master"
+    end
+    if (os.isdir("../raylib-master")) then
+        return "raylib-master"
+    end
+    return "raylib"
+end
+
+
 function link_raylib()
 	links {"raylib"}
     
-    includedirs {"../raylib/src" }
+    raylib_dir = get_raylib_dir();
+    includedirs {"../" .. raylib_dir .. "/src" }
     platform_defines()
     
     filter "action:vs*"
@@ -37,7 +49,8 @@ function link_raylib()
 end
 
 function include_raylib()
-    includedirs {"../raylib/src" }
+    raylib_dir = get_raylib_dir();
+    includedirs {"../" .. raylib_dir .."/src" }
     platform_defines()
     
     filter "action:vs*"
@@ -60,10 +73,12 @@ project "raylib"
 		
 	filter{}
     
-    includedirs { "raylib/src", "raylib/src/external/glfw/include"}
+    raylib_dir = get_raylib_dir();
+    print ("Using raylib dir " .. raylib_dir);
+    includedirs {raylib_dir .. "/src", raylib_dir .. "/src/external/glfw/include" }
     vpaths 
     {
-        ["Header Files"] = { "raylib/src/**.h"},
-        ["Source Files/*"] = {"raylib/src/**.c"},
+        ["Header Files"] = { raylib_dir .. "/src/**.h"},
+        ["Source Files/*"] = { raylib_dir .. "/src/**.c"},
     }
-    files {"raylib/src/*.h", "raylib/src/*.c"}
+    files {raylib_dir .. "/src/*.h", raylib_dir .. "/src/*.c"}

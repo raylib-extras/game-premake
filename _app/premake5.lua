@@ -3,8 +3,8 @@ baseName = path.getbasename(os.getcwd());
 
 project (baseName)
     kind "ConsoleApp"
-    location "../build"
-    targetdir "../bin/%{cfg.buildcfg}"
+    location "../_build"
+    targetdir "../_bin/%{cfg.buildcfg}"
 
     vpaths 
     {
@@ -14,4 +14,4 @@ project (baseName)
     files {"**.c", "**.cpp", "**.h"}
 
     includedirs { "./"}
-	setup_raylib();
+	link_raylib();

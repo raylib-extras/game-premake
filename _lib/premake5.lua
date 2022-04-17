@@ -3,15 +3,15 @@ baseName = path.getbasename(os.getcwd());
 
 project (baseName)
     kind "StaticLib"
-    location "../build"
-    targetdir "../bin/%{cfg.buildcfg}"
+    location "../_build"
+    targetdir "../_bin/%{cfg.buildcfg}"
     includedirs { "./"}
 
     vpaths 
     {
         ["Header Files/*"] = { "**.h"},
-        ["Source Files/*"] = { "**.cpp"},
+        ["Source Files/*"] = { "**.cpp","**.c"},
     }
-    files {"**.h", "**.cpp"}
+    files {"**.h", "**.cpp",,"**.c"}
 	
-	setup_raylib()
+	include_raylib()

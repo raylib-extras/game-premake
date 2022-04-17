@@ -40,7 +40,7 @@ include ("raylib_premake5.lua")
 folders = os.matchdirs("*")
 
 for _, folderName in ipairs(folders) do
-	if (folderName ~= "raylib" and folderName ~= "build" and folderName ~= "bin" and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
+	if (folderName ~= "raylib" and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
 		print(folderName)
 		include (folderName)
 	end

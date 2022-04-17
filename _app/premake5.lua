@@ -6,6 +6,10 @@ project (baseName)
     location "../_build"
     targetdir "../_bin/%{cfg.buildcfg}"
 
+	filter "action:vs*"
+        debugdir "$(SolutionDir)"
+	filter {}
+	
     vpaths 
     {
         ["Header Files/*"] = { "**.h"},

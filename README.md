@@ -11,7 +11,10 @@ https://github.com/raylib-extras/game-premake/tree/no_edit
 Download the zip file, or clone the repository. It doens't matter what one you use.
 Rename the folder whatever you want. This will be where your entire game proejct will be located.
 
-# Download raylib
+#(OPTIONAL) Get Raylib
+If you wish to use a specific version of raylib, follow the instructions below. If you want the current developmetn version, skip this section and premake will download raylib for you.
+
+## Download Raylib
 Get the raylib sources from 
 https://github.com/raysan5/raylib
 Download the zip file, or clone the repository. It doens't matter what one you use.

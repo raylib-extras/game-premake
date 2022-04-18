@@ -36,9 +36,9 @@ function check_raylib()
     end
 end
 
-baseName = path.getbasename(os.getcwd())
+workspaceName = path.getbasename(os.getcwd())
 
-workspace (baseName)
+workspace (workspaceName)
     configurations { "Debug", "Release"}
     platforms { "x64", "x86"}
 
@@ -65,7 +65,11 @@ for _, folderName in ipairs(folders) do
 	if (folderName ~= "raylib" and string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
         if (os.isfile(folderName .. "/premake5.lua")) then
             print(folderName)
+			workspace (workspaceName)
+				startproject(folderName)
+			
             include (folderName)
+			
         end
 	end
 end

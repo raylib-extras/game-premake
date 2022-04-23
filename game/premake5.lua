@@ -17,5 +17,5 @@ project (workspaceName)
     }
     files {"**.c", "**.cpp", "**.h"}
 
-    includedirs { "./"}
+    includedirs { "./", "src"}
 	link_raylib();

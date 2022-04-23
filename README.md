@@ -3,7 +3,7 @@ This is a simplified set of instructions for how to setup a project using premak
 
 ## Video Tutorial
 A video covering this process is here
-https://youtu.be/oHIh01L6xQQ
+https://youtu.be/--gI9083QnU
 
 # Download this repository
 Download the game premake repository from 

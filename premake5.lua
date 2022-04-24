@@ -54,12 +54,18 @@ workspace (workspaceName)
         architecture "x86_64"
         
     targetdir "bin/%{cfg.buildcfg}/"
-	startproject("game")
-			
+	
+	if(os.isdir("game")) then
+		startproject(workspaceName)
+	end
+	
 check_raylib();
 
 include ("raylib_premake5.lua")
-include ("game")
+
+if(os.isdir("game")) then
+	include ("game")
+end
 
 folders = os.matchdirs("*")
 for _, folderName in ipairs(folders) do

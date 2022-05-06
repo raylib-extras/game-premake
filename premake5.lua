@@ -8,12 +8,12 @@ function define_Cpp()
 end
 
 function string.starts(String,Start)
-   return string.sub(String,1,string.len(Start))==Start
+    return string.sub(String,1,string.len(Start))==Start
 end
 
 function link_to(lib)
-	links (lib)
-	includedirs ("../"..lib)
+    links (lib)
+    includedirs ("../"..lib)
 end
 
 function download_progress(total, current)
@@ -47,34 +47,34 @@ workspace (workspaceName)
     filter "configurations:Debug"
         defines { "DEBUG" }
         symbols "On"
-        
+
     filter "configurations:Release"
         defines { "NDEBUG" }
-        optimize "On"    
+        optimize "On"
 
     filter { "platforms:x64" }
         architecture "x86_64"
-        
+
     targetdir "bin/%{cfg.buildcfg}/"
-	
-	if(os.isdir("game")) then
-		startproject(workspaceName)
-	end
-	
+
+    if(os.isdir("game")) then
+        startproject(workspaceName)
+    end
+
 check_raylib();
 
 include ("raylib_premake5.lua")
 
 if(os.isdir("game")) then
-	include ("game")
+    include ("game")
 end
 
 folders = os.matchdirs("*")
 for _, folderName in ipairs(folders) do
-	if (folderName ~= "app" and string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
+    if (folderName ~= "app" and string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
         if (os.isfile(folderName .. "/premake5.lua")) then
             print(folderName)
             include (folderName)
         end
-	end
+    end
 end

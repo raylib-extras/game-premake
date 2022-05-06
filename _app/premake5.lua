@@ -6,11 +6,11 @@ project (baseName)
     location "../_build"
     targetdir "../_bin/%{cfg.buildcfg}"
 
-	filter "action:vs*"
+    filter "action:vs*"
         debugdir "$(SolutionDir)"
-	filter {}
-	
-    vpaths 
+    filter{}
+
+    vpaths
     {
         ["Header Files/*"] = { "**.h"},
         ["Source Files/*"] = {"**.c", "**.cpp"},
@@ -18,4 +18,4 @@ project (baseName)
     files {"**.c", "**.cpp", "**.h"}
 
     includedirs { "./"}
-	link_raylib();
+    link_raylib();

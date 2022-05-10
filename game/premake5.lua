@@ -2,12 +2,20 @@
 baseName = path.getbasename(os.getcwd());
 
 project (workspaceName)
-    kind "ConsoleApp"
+  	kind "ConsoleApp"
     location "../_build"
     targetdir "../_bin/%{cfg.buildcfg}"
+	
+    filter "configurations:Release"
+		kind "WindowedApp"
+		entrypoint "mainCRTStartup"
 
 	filter "action:vs*"
         debugdir "$(SolutionDir)"
+		
+	filter {"action:vs*", "configurations:Release"}
+			kind "WindowedApp"
+			entrypoint "mainCRTStartup"
 	filter {}
 	
     vpaths 

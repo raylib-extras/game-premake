@@ -8,6 +8,11 @@ project (baseName)
 
     filter "action:vs*"
         debugdir "$(SolutionDir)"
+		
+	filter {"action:vs*", "configurations:Release"}
+		kind "WindowedApp"
+		entrypoint "mainCRTStartup"
+		
     filter{}
 
     vpaths

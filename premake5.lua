@@ -55,6 +55,8 @@ workspace (workspaceName)
     filter { "platforms:x64" }
         architecture "x86_64"
 
+	filter {}
+	
     targetdir "bin/%{cfg.buildcfg}/"
 
     if(os.isdir("game")) then

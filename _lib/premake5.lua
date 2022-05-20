@@ -5,13 +5,13 @@ project (baseName)
     kind "StaticLib"
     location "../_build"
     targetdir "../_bin/%{cfg.buildcfg}"
-    includedirs { "./"}
+    includedirs { "./", "./include"}
 
     vpaths 
     {
         ["Header Files/*"] = { "**.h"},
         ["Source Files/*"] = { "**.cpp","**.c"},
     }
-    files {"**.h", "**.cpp",,"**.c"}
+    files {"**.h", "**.cpp","**.c"}
 	
 	include_raylib()

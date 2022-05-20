@@ -13,7 +13,7 @@ end
 
 function link_to(lib)
     links (lib)
-    includedirs ("../"..lib)
+    includedirs ("../"..lib,"../"..lib.."/include" )
 end
 
 function download_progress(total, current)

@@ -4,6 +4,18 @@ newoption
     description = "use OpenGL 4.3"
 }
 
+newoption
+{
+    trigger = "opengl22",
+    description = "use OpenGL 2.2"
+}
+
+newoption
+{
+    trigger = "opengl11",
+    description = "use OpenGL 1.1"
+}
+
 function platform_defines()
     defines{"PLATFORM_DESKTOP"}
     if (_OPTIONS["opengl43"]) then

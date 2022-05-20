@@ -27,3 +27,5 @@ project (workspaceName)
 
     includedirs { "./", "src"}
 	link_raylib();
+	
+	-- To link to a lib use link_to(LIB_NAME)

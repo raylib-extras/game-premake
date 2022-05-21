@@ -73,3 +73,15 @@ Open your terminal, change to the game folder and type.
 	
 This will build your starting game template
 	
+	
+# Building for other OpenGL targets
+If you need to build for a different OpenGL version than the default (OpenGL 3.3) you can specify an openGL version in your premake command line. Just modify the bat file or add the following to your command line
+
+## For OpenGL 1.1
+--opengl11
+
+## For OpenGL 2.2
+--opengl22
+
+## For OpenGL 4.3
+--opengl43

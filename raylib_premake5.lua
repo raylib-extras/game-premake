@@ -20,6 +20,10 @@ function platform_defines()
     defines{"PLATFORM_DESKTOP"}
     if (_OPTIONS["opengl43"]) then
         defines{"GRAPHICS_API_OPENGL_43"}
+    elseif (_OPTIONS["opengl22"]) then
+        defines{"GRAPHICS_API_OPENGL_22"}
+    elseif (_OPTIONS["opengl11"]) then
+        defines{"GRAPHICS_API_OPENGL_11"}
     else
         defines{"GRAPHICS_API_OPENGL_33"}
     end

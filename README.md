@@ -57,7 +57,7 @@ This will generate a makefile for you.
 Only do ONE of these options depending on your compiler and platform.
 ## Windows Users
 Double click the .sln file that was generated in the folder. If you are using Visual Studio 2022 you will be asked to upgrade the project, the defaults are fine, accept them and it will load.
-From here you can use the prouject as normal.
+From here you can use the project as normal.
 	
 ## MinGW-w64 Users
 Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 

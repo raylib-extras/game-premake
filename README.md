@@ -85,3 +85,15 @@ If you need to build for a different OpenGL version than the default (OpenGL 3.3
 
 ## For OpenGL 4.3
 --opengl43
+
+# Building extra libs
+If you need to add a seperate library to your game you can do that very easaly.
+Simply copy the _lib folder and rename it to what you want your lib to be called.
+Replace lib.c with the sources for your library (just copy them in the folder).
+If you library has an include folder, copy that too.
+Then go to the premake5.lua file in the game folder, and link your library by calling link_to with the folder name for the library.
+
+link_to("LIB_FOLDER_NAME")
+
+Rerun premake and it will build your library for you.
+Note that by default link_to will add include dirs for your library folder and library/include. If you have other include needs you will have to add those to your premake file manually.

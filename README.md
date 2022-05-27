@@ -8,23 +8,23 @@ https://youtu.be/--gI9083QnU
 # Download this repository
 Download the game premake repository from 
 https://github.com/raylib-extras/game-premake/tree/no_edit
-Download the zip file, or clone the repository. It doens't matter what one you use.
+Download the zip file, or clone the repository. It doesn't matter what one you use.
 Rename the folder whatever you want. This will be the name of your game.
 
 #(OPTIONAL) Get Raylib
-If you wish to use a specific version of raylib, follow the instructions below. If you want the current developmetn version, skip this section and premake will download raylib for you.
+If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.
 
 ## Download Raylib
 Get the raylib sources from 
 https://github.com/raysan5/raylib
-Download the zip file, or clone the repository. It doens't matter what one you use.
+Download the zip file, or clone the repository. It doesn't matter what one you use.
 Put the raylib sources in a folder called raylib inside your game folder (The same folder this file is in). The folder must be named raylib, it can not be raylib-master. The raylib folder should contain all the sources from raylib (including the 'src' folder)
 
 # Example app
 This repository is pre-populated wit the raylib game template. It is a great starting point for your game.
 https://github.com/raysan5/raylib-game-template
 
-If you want to have a different starting point, simply repalce the files in the game folder with your own files.
+If you want to have a different starting point, simply replace the files in the game folder with your own files.
 
 ## Using C++
 By default this process is setup to build a project using C. If you want to use C++, you can replace these files with cpp files.
@@ -78,16 +78,16 @@ This will build your starting game template
 If you need to build for a different OpenGL version than the default (OpenGL 3.3) you can specify an openGL version in your premake command line. Just modify the bat file or add the following to your command line
 
 ## For OpenGL 1.1
---opengl11
+--graphics-api=opengl11
 
-## For OpenGL 2.2
---opengl22
+## For OpenGL 2.1
+--graphics-api=opengl21
 
 ## For OpenGL 4.3
---opengl43
+--graphics-api=opengl43
 
 # Building extra libs
-If you need to add a seperate library to your game you can do that very easaly.
+If you need to add a separate library to your game you can do that very easily.
 Simply copy the _lib folder and rename it to what you want your lib to be called.
 Replace lib.c with the sources for your library (just copy them in the folder).
 If you library has an include folder, copy that too.

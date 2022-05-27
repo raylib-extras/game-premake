@@ -16,6 +16,12 @@ newoption
     description = "use OpenGL 1.1"
 }
 
+newoption
+{
+    trigger = "wayland",
+    description = "use Wayland window system"
+}
+
 function platform_defines()
     defines{"PLATFORM_DESKTOP"}
     if (_OPTIONS["opengl43"]) then
@@ -27,6 +33,11 @@ function platform_defines()
     else
         defines{"GRAPHICS_API_OPENGL_33"}
     end
+
+    filter {"system:linux", "options:wayland"}
+        defines{"_GLFW_WAYLAND"}
+
+    filter{}
 end
 
 function get_raylib_dir()

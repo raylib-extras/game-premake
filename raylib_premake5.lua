@@ -1,19 +1,15 @@
 newoption
 {
-    trigger = "opengl43",
-    description = "use OpenGL 4.3"
-}
-
-newoption
-{
-    trigger = "opengl22",
-    description = "use OpenGL 2.2"
-}
-
-newoption
-{
-    trigger = "opengl11",
-    description = "use OpenGL 1.1"
+    trigger = "graphics-api",
+    value = "OPENGL_VERSION",
+    description = "version of OpenGL to build raylib against",
+    allowed = {
+	    { "opengl11", "OpenGL 1.1"},
+	    { "opengl21", "OpenGL 2.1"},
+	    { "opengl33", "OpenGL 3.3"},
+	    { "opengl43", "OpenGL 4.3"}
+    },
+    default = "opengl33"
 }
 
 newoption
@@ -24,15 +20,18 @@ newoption
 
 function platform_defines()
     defines{"PLATFORM_DESKTOP"}
-    if (_OPTIONS["opengl43"]) then
+
+    filter {"options:graphics=opengl43"}
         defines{"GRAPHICS_API_OPENGL_43"}
-    elseif (_OPTIONS["opengl22"]) then
-        defines{"GRAPHICS_API_OPENGL_22"}
-    elseif (_OPTIONS["opengl11"]) then
-        defines{"GRAPHICS_API_OPENGL_11"}
-    else
+
+    filter {"options:graphics=opengl33"}
         defines{"GRAPHICS_API_OPENGL_33"}
-    end
+
+    filter {"options:graphics=opengl21"}
+        defines{"GRAPHICS_API_OPENGL_21"}
+
+    filter {"options:graphics=opengl11"}
+        defines{"GRAPHICS_API_OPENGL_11"}
 
     filter {"system:linux", "options:wayland"}
         defines{"_GLFW_WAYLAND"}

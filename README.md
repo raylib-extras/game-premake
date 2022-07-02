@@ -52,7 +52,14 @@ cd to the game folder and run
     ./premake5 gmake2
 
 This will generate a makefile for you.
+
+## macOS users
+cd to the game folder and run
+
+    ./premake5.osx gmake2
 	
+This will generate a makefile for you.
+
 # Build your game
 Only do ONE of these options depending on your compiler and platform.
 ## Windows Users
@@ -66,7 +73,7 @@ Open your compiler terminal (w64devkit if you are using it), change to the game 
 	
 This will build your game
 	
-## Linux users
+## Linux/macOS users
 Open your terminal, change to the game folder and type.
 
     make

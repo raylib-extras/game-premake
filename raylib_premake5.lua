@@ -36,9 +36,6 @@ function platform_defines()
     filter {"system:linux", "options:wayland"}
         defines{"_GLFW_WAYLAND"}
 
-    filter {"system:macosx"}
-        disablewarnings { "deprecated-declarations" }
-
     filter{}
 end
 
@@ -58,6 +55,8 @@ function link_raylib()
 
     raylib_dir = get_raylib_dir();
     includedirs {"../" .. raylib_dir .. "/src" }
+	includedirs {"../" .. raylib_dir .."/src/external" }
+	includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
     platform_defines()
 
     filter "action:vs*"
@@ -74,15 +73,14 @@ function link_raylib()
     filter "system:linux"
         links {"pthread", "GL", "m", "dl", "rt", "X11"}
 
-    filter "system:macosx"
-        links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework"}
-
     filter{}
 end
 
 function include_raylib()
     raylib_dir = get_raylib_dir();
     includedirs {"../" .. raylib_dir .."/src" }
+	includedirs {"../" .. raylib_dir .."/src/external" }
+	includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
     platform_defines()
 
     filter "action:vs*"
@@ -115,7 +113,3 @@ project "raylib"
         ["Source Files/*"] = { raylib_dir .. "/src/**.c"},
     }
     files {raylib_dir .. "/src/*.h", raylib_dir .. "/src/*.c"}
-    filter { "system:macosx", "files:" .. raylib_dir .. "/src/rglfw.c" }
-         compileas "Objective-C"
-
-    filter{}

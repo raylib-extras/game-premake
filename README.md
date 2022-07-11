@@ -85,13 +85,13 @@ This will build your starting game template
 If you need to build for a different OpenGL version than the default (OpenGL 3.3) you can specify an openGL version in your premake command line. Just modify the bat file or add the following to your command line
 
 ## For OpenGL 1.1
---graphics-api=opengl11
+--graphics=opengl11
 
 ## For OpenGL 2.1
---graphics-api=opengl21
+--graphics=opengl21
 
 ## For OpenGL 4.3
---graphics-api=opengl43
+--graphics=opengl43
 
 # Building extra libs
 If you need to add a separate library to your game you can do that very easily.

@@ -1,4 +1,24 @@
 
+newoption
+{
+    trigger = "graphics",
+    value = "OPENGL_VERSION",
+    description = "version of OpenGL to build raylib against",
+    allowed = {
+	    { "opengl11", "OpenGL 1.1"},
+	    { "opengl21", "OpenGL 2.1"},
+	    { "opengl33", "OpenGL 3.3"},
+	    { "opengl43", "OpenGL 4.3"}
+    },
+    default = "opengl33"
+}
+
+newoption
+{
+    trigger = "wayland",
+    description = "use Wayland window system"
+}
+
 function define_C()
     language "C"
 end

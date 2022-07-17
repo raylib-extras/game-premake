@@ -7,9 +7,11 @@ https://youtu.be/--gI9083QnU
 
 # Download this repository
 Download the game premake repository from 
-https://github.com/raylib-extras/game-premake/tree/no_edit
-Download the zip file, or clone the repository. It doesn't matter what one you use.
-Rename the folder whatever you want. This will be the name of your game.
+https://github.com/raylib-extras/game-premake/
+You can either download the zip file, or clone the repository.
+If you clone the repository, you may want to remove the stored history. Simply delete the .git directory to do this.
+
+Rename the directory whatever you want. This will be the name of your game.
 
 #(OPTIONAL) Get Raylib
 If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.

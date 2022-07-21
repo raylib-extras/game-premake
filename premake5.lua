@@ -13,12 +13,6 @@ newoption
     default = "opengl33"
 }
 
-newoption
-{
-    trigger = "wayland",
-    description = "use Wayland window system"
-}
-
 function define_C()
     language "C"
 end

@@ -14,9 +14,6 @@ function platform_defines()
     filter {"options:graphics=opengl11"}
         defines{"GRAPHICS_API_OPENGL_11"}
 
-    filter {"system:linux", "options:wayland"}
-        defines{"_GLFW_WAYLAND"}
-
     filter {"system:macosx"}
         disablewarnings {"deprecated-declarations"}
 

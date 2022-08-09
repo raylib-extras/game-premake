@@ -18,13 +18,14 @@ project (workspaceName)
 			entrypoint "mainCRTStartup"
 	filter {}
 	
-    vpaths 
-    {
-        ["Header Files/*"] = { "src/**.h", "**.h"},
-        ["Source Files/*"] = {"src/**.c", "src/**.cpp","**.c", "**.cpp"},
-    }
-    files {"**.c", "**.cpp", "**.h"}
+	vpaths 
+	{
+	  ["Header Files/*"] = { "include/**.h",  "include/**.hpp", "src/**.h", "src/**.hpp", "**.h", "**.hpp"},
+	  ["Source Files/*"] = {"src/**.c", "src/**.cpp","**.c", "**.cpp"},
+	}
+	files {"**.c", "**.cpp", "**.h", "**.hpp"}
 
+	includedirs { "./", "src", "include"}
     includedirs { "./", "src"}
 	link_raylib();
 	

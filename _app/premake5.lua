@@ -15,14 +15,14 @@ project (baseName)
 		
     filter{}
 
-    vpaths
+    vpaths 
     {
-        ["Header Files/*"] = { "**.h"},
-        ["Source Files/*"] = {"**.c", "**.cpp"},
+        ["Header Files/*"] = { "include/**.h",  "include/**.hpp", "src/**.h", "src/**.hpp", "**.h", "**.hpp"},
+        ["Source Files/*"] = {"src/**.c", "src/**.cpp","**.c", "**.cpp"},
     }
-    files {"**.c", "**.cpp", "**.h"}
-
-    includedirs { "./"}
+    files {"**.c", "**.cpp", "**.h", "**.hpp"}
+  
+    includedirs { "./", "src", "include"}
     link_raylib();
 	
 	-- To link to a lib use link_to("LIB_FOLDER_NAME")

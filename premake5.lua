@@ -71,7 +71,7 @@ workspace (workspaceName)
 
 	filter {}
 	
-    targetdir "bin/%{cfg.buildcfg}/"
+    targetdir "_bin/%{cfg.buildcfg}/"
 
     if(os.isdir("game")) then
         startproject(workspaceName)

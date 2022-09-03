@@ -87,7 +87,7 @@ end
 
 folders = os.matchdirs("*")
 for _, folderName in ipairs(folders) do
-    if (folderName ~= "app" and string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
+    if (string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
         if (os.isfile(folderName .. "/premake5.lua")) then
             print(folderName)
             include (folderName)

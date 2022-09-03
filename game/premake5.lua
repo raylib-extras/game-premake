@@ -26,7 +26,6 @@ project (workspaceName)
 	files {"**.c", "**.cpp", "**.h", "**.hpp"}
 
 	includedirs { "./", "src", "include"}
-    includedirs { "./", "src"}
 	link_raylib();
 	
 	-- To link to a lib use link_to("LIB_FOLDER_NAME")

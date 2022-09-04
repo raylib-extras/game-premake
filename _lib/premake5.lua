@@ -9,9 +9,9 @@ project (baseName)
 
     vpaths 
     {
-        ["Header Files/*"] = { "**.h"},
-        ["Source Files/*"] = { "**.cpp","**.c"},
+        ["Header Files/*"] = { "include/**.h", "include/**.hpp", "**.h", "**.hpp"},
+        ["Source Files/*"] = { "src/**.cpp", "src/**.c", "**.cpp","**.c"},
     }
-    files {"**.h", "**.cpp","**.c"}
+    files {"**.hpp", "**.h", "**.cpp","**.c"}
 	
 	include_raylib()

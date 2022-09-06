@@ -76,7 +76,9 @@ workspace (workspaceName)
     if(os.isdir("game")) then
         startproject(workspaceName)
     end
-
+	
+	cdialect "C11"
+	cppdialect "C++11"
 check_raylib();
 
 include ("raylib_premake5.lua")

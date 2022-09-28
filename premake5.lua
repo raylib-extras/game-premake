@@ -77,7 +77,7 @@ workspace (workspaceName)
         startproject(workspaceName)
     end
 
-    cdialect "C11"
+    cdialect "C99"
     cppdialect "C++11"
 check_raylib();
 

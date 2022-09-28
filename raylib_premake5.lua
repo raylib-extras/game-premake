@@ -17,6 +17,17 @@ function platform_defines()
     filter {"system:macosx"}
         disablewarnings {"deprecated-declarations"}
 
+    filter {"system:linux"}
+        defines {"_GNU_SOURCE"}
+-- This is necessary, otherwise compilation will fail since
+-- there is no CLOCK_MONOTOMIC. raylib claims to have a workaround
+-- to compile under c99 without -D_GNU_SOURCE, but it didn't seem
+-- to work. raylib's Makefile also adds this flag, probably why it went
+-- unnoticed for so long.
+-- It compiles under c11 without -D_GNU_SOURCE, because c11 requires
+-- to have CLOCK_MONOTOMIC
+-- See: https://github.com/raysan5/raylib/issues/2729
+
     filter{}
 end
 

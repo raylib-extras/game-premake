@@ -54,6 +54,12 @@ end
 
 workspaceName = path.getbasename(os.getcwd())
 
+if (string.lower(workspaceName) == "raylib") then
+    print("raylib is a reserved name. Name your project directory something else.")
+    -- Project generation will succeed, but compilation will definitely fail, so just abort here.
+    os.exit()
+end
+
 workspace (workspaceName)
     configurations { "Debug", "Release"}
     platforms { "x64", "x86"}

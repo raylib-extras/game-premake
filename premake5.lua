@@ -5,10 +5,10 @@ newoption
     value = "OPENGL_VERSION",
     description = "version of OpenGL to build raylib against",
     allowed = {
-	    { "opengl11", "OpenGL 1.1"},
-	    { "opengl21", "OpenGL 2.1"},
-	    { "opengl33", "OpenGL 3.3"},
-	    { "opengl43", "OpenGL 4.3"}
+        { "opengl11", "OpenGL 1.1"},
+        { "opengl21", "OpenGL 2.1"},
+        { "opengl33", "OpenGL 3.3"},
+        { "opengl43", "OpenGL 4.3"}
     },
     default = "opengl33"
 }
@@ -35,7 +35,7 @@ function download_progress(total, current)
     ratio = math.min(math.max(ratio, 0), 1);
     local percent = math.floor(ratio * 100);
     print("Download progress (" .. percent .. "%/100%)")
-  end
+end
 
 function check_raylib()
     if(os.isdir("raylib") == false and os.isdir("raylib-master") == false) then
@@ -54,6 +54,12 @@ end
 
 workspaceName = path.getbasename(os.getcwd())
 
+if (string.lower(workspaceName) == "raylib") then
+    print("raylib is a reserved name. Name your project directory something else.")
+    -- Project generation will succeed, but compilation will definitely fail, so just abort here.
+    os.exit()
+end
+
 workspace (workspaceName)
     configurations { "Debug", "Release"}
     platforms { "x64", "x86"}
@@ -69,16 +75,16 @@ workspace (workspaceName)
     filter { "platforms:x64" }
         architecture "x86_64"
 
-	filter {}
-	
+    filter {}
+
     targetdir "_bin/%{cfg.buildcfg}/"
 
     if(os.isdir("game")) then
         startproject(workspaceName)
     end
-	
-	cdialect "C11"
-	cppdialect "C++11"
+
+    cdialect "C99"
+    cppdialect "C++11"
 check_raylib();
 
 include ("raylib_premake5.lua")

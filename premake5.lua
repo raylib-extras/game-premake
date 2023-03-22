@@ -63,7 +63,7 @@ end
 
 workspace (workspaceName)
     configurations { "Debug", "Release"}
-    platforms { "x64", "x86"}
+    platforms { "x64", "x86", "ARM64"}
 
     filter "configurations:Debug"
         defines { "DEBUG" }
@@ -75,6 +75,9 @@ workspace (workspaceName)
 
     filter { "platforms:x64" }
         architecture "x86_64"
+		
+	filter { "platforms:Arm64" }
+        architecture "ARM64"
 
     filter {}
 

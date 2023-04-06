@@ -13,14 +13,6 @@ newoption
     default = "opengl33"
 }
 
-function define_C()
-    language "C"
-end
-
-function define_Cpp()
-    language "C++"
-end
-
 function string.starts(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end

@@ -65,7 +65,7 @@ function link_raylib()
         links {"pthread", "GL", "m", "dl", "rt", "X11"}
 
     filter "system:macosx"
-        links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework"}
+        links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}
 
     filter{}
 end

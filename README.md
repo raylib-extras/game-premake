@@ -43,7 +43,7 @@ This will generate a Visual Studio project.
 	
 ## MinGW-w64 Users
 Please make sure you have a recent version of MinGW-W64. The older versons from mingw.org will not work.
-We recomend the W64Devkit. I thas everything needed to build raylib. I can be downloaded from here https://github.com/skeeto/w64devkit/releases
+We recomend the W64Devkit. It has everything needed to build raylib. It can be downloaded from here https://github.com/skeeto/w64devkit/releases
 
 Once you have MinGW-W64
 Run the batch file.

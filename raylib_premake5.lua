@@ -1,6 +1,10 @@
 
 function platform_defines()
-    defines{"PLATFORM_DESKTOP"}
+    filter { "configurations:Release or configurations:Debug"}
+        defines{"PLATFORM_DESKTOP"}
+        
+    filter { "configurations:ReleaseSDL or configurations:DebugSDL"}
+        defines{"PLATFORM_DESKTOP_SDL"}
 
     filter {"options:graphics=opengl43"}
         defines{"GRAPHICS_API_OPENGL_43"}
@@ -47,8 +51,14 @@ function link_raylib()
     raylib_dir = get_raylib_dir();
     includedirs {"../" .. raylib_dir .. "/src" }
     includedirs {"../" .. raylib_dir .."/src/external" }
-    includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
+    
     platform_defines()
+
+    filter { "configurations:Release or configurations:Debug"}
+         includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
+        
+    filter { "configurations:ReleaseSDL or configurations:DebugSDL"}
+        includedirs {"../SDL2/include" }
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
@@ -67,15 +77,24 @@ function link_raylib()
     filter "system:macosx"
         links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}
 
+    filter { "action:vs*", "platforms:x64", "configurations:ReleaseSDL or configurations:DebugSDL"}
+        libdirs {"../SDL2/lib/x64" }
+        links {"SDL2.lib"}
+
     filter{}
+
 end
 
 function include_raylib()
     raylib_dir = get_raylib_dir();
     includedirs {"../" .. raylib_dir .."/src" }
     includedirs {"../" .. raylib_dir .."/src/external" }
-    includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
     platform_defines()
+
+    filter { "configurations:Release orconfigurations:Debug"}
+         includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
+    filter { "configurations:ReleaseSDL or configurations:DebugSDL"}
+        includedirs {"../SDL2/include" }
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
@@ -91,6 +110,23 @@ project "raylib"
     location "_build"
     language "C"
     targetdir "_bin/%{cfg.buildcfg}"
+
+    filter { "configurations:ReleaseSDL or configurations:DebugSDL"}
+        includedirs {"SDL2/include" }
+        
+     filter { "action:vs*", "platforms:x64", "configurations:DebugSDL"}
+        postbuildcommands { "copy $(SolutionDir)SDL2\\lib\\x64\\SDL2.dll $(SolutionDir)_bin\\DebugSDL" }
+     filter { "action:vs*", "platforms:x64", "configurations:ReleaseDL"}
+        postbuildcommands { "copy $(SolutionDir)SDL2\\lib\\x64\\SDL2.dll $(SolutionDir)_bin\\ReleaseSDL" }
+        
+     filter { "action:vs*", "platforms:x86", "configurations:DebugSDL"}
+        postbuildcommands { "copy $(SolutionDir)SDL2\\lib\\x86\\SDL2.dll $(SolutionDir)_bin\\DebugSDL" }
+     filter { "action:vs*", "platforms:x86", "configurations:ReleaseDL"}
+        postbuildcommands { "copy $(SolutionDir)SDL2\\lib\\x86\\SDL2.dll $(SolutionDir)_bin\\ReleaseSDL" }
+        
+     filter { "NOT action:vs*", "configurations:ReleaseSDL or configurations:DebugSDL"}
+        includedirs {"SDL2/include" }
+        links{"sdl2"}
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
@@ -114,3 +150,4 @@ project "raylib"
         compileas "Objective-C"
 
     filter{}
+    

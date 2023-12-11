@@ -54,16 +54,16 @@ if (string.lower(workspaceName) == "raylib") then
 end
 
 workspace (workspaceName)
-    configurations { "Debug", "Release"}
+    configurations { "Debug", "Release", "DebugSDL", "ReleaseSDL"}
     platforms { "x64", "x86", "ARM64"}
 	
 	defaultplatform ("x64")
 
-    filter "configurations:Debug"
+    filter {"configurations:Debug or configurations:DebugSDL" }
         defines { "DEBUG" }
         symbols "On"
 
-    filter "configurations:Release"
+    filter {"configurations:Release or configurations:ReleaseSDL" }
         defines { "NDEBUG" }
         optimize "On"
 

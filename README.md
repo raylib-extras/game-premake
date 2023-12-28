@@ -13,7 +13,7 @@ If you clone the repository, you may want to remove the stored history. Simply d
 
 Rename the directory whatever you want. This will be the name of your game.
 
-#(OPTIONAL) Get Raylib
+# (Optional) Get Raylib
 If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.
 
 ## Download Raylib

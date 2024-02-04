@@ -79,7 +79,7 @@ Open your compiler terminal (w64devkit if you are using it), change to the game 
 This will build your game
 	
 ## Linux/macOS users
-Open your terminal, change to the game folder and type.
+Open your terminal, change to the root folder and type.
 
     make
 	

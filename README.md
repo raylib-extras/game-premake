@@ -53,14 +53,14 @@ Run the batch file.
 This will generate a makefile for you
 	
 ## Linux users
-cd to the game folder and run
+cd to the root folder and run
 
     ./premake5 gmake2
 
 This will generate a makefile for you.
 
 ## macOS users
-cd to the game folder and run
+cd to the root folder and run
 
     ./premake5.osx gmake2
 	

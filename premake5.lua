@@ -75,7 +75,7 @@ workspace (workspaceName)
 
     filter {}
 
-    targetdir "_bin/%{cfg.buildcfg}/"
+    targetdir "bin/%{cfg.buildcfg}/"
 
     if(os.isdir("game")) then
         startproject(workspaceName)
@@ -93,7 +93,7 @@ end
 
 folders = os.matchdirs("*")
 for _, folderName in ipairs(folders) do
-    if (string.starts(folderName, "raylib") == false and string.starts(folderName, "_") == false and string.starts(folderName, ".") == false) then
+    if (string.starts(folderName, "raylib") == false and string.starts(folderName, ".") == false) then
         if (os.isfile(folderName .. "/premake5.lua")) then
             print(folderName)
             include (folderName)

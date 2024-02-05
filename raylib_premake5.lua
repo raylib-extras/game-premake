@@ -55,6 +55,7 @@ function link_raylib()
         dependson {"raylib"}
         links {"raylib.lib"}
         characterset ("MBCS")
+        buildoptions { "/Zc:__cplusplus" }
 
     filter "system:windows"
         defines{"_WIN32"}
@@ -95,7 +96,7 @@ project "raylib"
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
         characterset ("MBCS")
-
+        buildoptions { "/Zc:__cplusplus" }
     filter{}
 
     raylib_dir = get_raylib_dir();

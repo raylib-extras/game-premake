@@ -97,6 +97,10 @@ function include_raylib()
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
 
+   filter {"system:linux", "options:platform=drm"}
+        includedirs {"/usr/include/libdrm" }
+        defines{"EGL_NO_X11"}
+
     filter{}
 end
 
@@ -116,6 +120,7 @@ project "raylib"
         
     filter "options:platform=drm"
          defines{"EGL_NO_X11"}
+         includedirs {"/usr/include/libdrm" }
          buildoptions { "-Werror=implicit-function-declaration" }
     filter{}
 

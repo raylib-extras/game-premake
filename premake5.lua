@@ -13,6 +13,20 @@ newoption
     default = "opengl33"
 }
 
+newoption
+{
+    trigger = "platform",
+    value = "PLATFORM",
+    description = "platform for raylib to target",
+    allowed = {
+        { "desktop_glfw", "Desktop GLFW"},
+        { "desktop_sdl", "Desktop SDL"},
+        { "drm", "DRM"},
+    },
+    default = "desktop_glfw"
+}
+
+
 function string.starts(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end

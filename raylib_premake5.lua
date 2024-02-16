@@ -1,6 +1,14 @@
 
 function platform_defines()
-    defines{"PLATFORM_DESKTOP"}
+    filter {"options:platform=desktop_glfw"}
+        defines{"PLATFORM_DESKTOP"}
+
+    filter {"options:platform=desktop_sdl"}
+        defines{"PLATFORM_DESKTOP_SDL"}
+        defines{"GRAPHICS_API_OPENGL_ES2"}
+
+    filter {"options:platform=drm"}
+        defines{"PLATFORM_DRM"}
 
     filter {"options:graphics=opengl43"}
         defines{"GRAPHICS_API_OPENGL_43"}
@@ -13,6 +21,9 @@ function platform_defines()
 
     filter {"options:graphics=opengl11"}
         defines{"GRAPHICS_API_OPENGL_11"}
+        
+    filter {"options:graphics=opengles2"}
+        defines{"GRAPHICS_API_OPENGL_ES2"}
 
     filter {"system:macosx"}
         disablewarnings {"deprecated-declarations"}
@@ -62,8 +73,11 @@ function link_raylib()
         links {"winmm", "kernel32", "opengl32", "gdi32"}
         libdirs {"../bin/%{cfg.buildcfg}"}
 
-    filter "system:linux"
+    filter {"system:linux", "not options:platform=drm"}
         links {"pthread", "GL", "m", "dl", "rt", "X11"}
+        
+    filter {"system:linux", "options:platform=drm"}
+        links {"pthread", "GLESv2", "EGL", "m", "dl", "rt", "drm", "gbm"}
 
     filter "system:macosx"
         links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}

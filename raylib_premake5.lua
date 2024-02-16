@@ -78,6 +78,8 @@ function link_raylib()
         
     filter {"system:linux", "options:platform=drm"}
         links {"pthread", "GLESv2", "EGL", "m", "dl", "rt", "drm", "gbm"}
+        includedirs {"/usr/include/libdrm" }
+        defines{"EGL_NO_X11"}
 
     filter "system:macosx"
         links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}
@@ -111,6 +113,10 @@ project "raylib"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
         characterset ("MBCS")
         buildoptions { "/Zc:__cplusplus" }
+        
+    filter "options:platform=drm"
+         defines{"EGL_NO_X11"}
+         buildoptions { "-Werror=implicit-function-declaration" }
     filter{}
 
     raylib_dir = get_raylib_dir();

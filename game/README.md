@@ -28,6 +28,15 @@ $(Your Game Description)
  - $(Game Feature 02)
  - $(Game Feature 03)
 
+### Changelog
+
+#### Version X.X.X (YYYY-MM-DD)
+
+- **Added:** Description of new features or content added.
+- **Changed:** Description of changes or modifications made.
+- **Fixed:** Description of bugs or issues resolved.
+- **Removed:** Description of features or content removed.
+
 ### Controls
 
 Keyboard:
@@ -50,6 +59,13 @@ _TODO: Show your game to the world, animated GIFs recommended!._
  - YouTube Gameplay: $(YouTube Link)
  - itch.io Release: $(itch.io Game Page)
  - Steam Release: $(Steam Game Page)
+ - Discord Server: $(Discord Link)
+
+### FAQ
+
+- **Question 1**: Your answer to question 1 here.
+- **Question 2**: Your answer to question 2 here.
+- **Question 3**: Your answer to question 3 here.
 
 ### License
 
@@ -57,4 +73,5 @@ This game sources are licensed under an unmodified zlib/libpng license, which is
 
 $(Additional Licenses)
 
-*Copyright (c) $(Year) $(User Name) ($(User Twitter/GitHub Name))*
+*Copyright © $(Year) $(User Name) ($(User Twitter/GitHub Name))*
+ 

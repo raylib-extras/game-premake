@@ -4,3 +4,5 @@ _bin
 .vs
 /bin
 /build
+Makefile
+obj

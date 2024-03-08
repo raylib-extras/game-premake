@@ -110,7 +110,7 @@ link_to("LIB_FOLDER_NAME")
 Rerun premake and it will build your library for you.
 Note that by default link_to will add include dirs for your library folder and library/include. If you have other include needs you will have to add those to your premake file manually.
 
-#License
+# License
 Copyright (c) 2020-2024 Jeffery Myers
 
 This software is provided "as-is", without any express or implied warranty. In no event 

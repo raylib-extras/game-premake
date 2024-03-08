@@ -29,7 +29,7 @@ https://github.com/raysan5/raylib-game-template
 If you want to have a different starting point, simply replace the files in the game folder with your own files.
 
 ## Using C++
-By default this process is setup to build a project using C. If you want to use C++, you can replace your files with you own cpp files. There is is a simple C++ file in the _app dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
+By default this process is setup to build a project using C. If you want to use C++, you can replace your files with you own cpp files. There is is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
 
 # Generate Projects
 For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.
@@ -100,7 +100,7 @@ If you need to build for a different OpenGL version than the default (OpenGL 3.3
 
 # Building extra libs
 If you need to add a separate library to your game you can do that very easily.
-Simply copy the _lib folder and rename it to what you want your lib to be called.
+Simply copy the extras/example_library folder and rename it to what you want your lib to be called.
 Replace lib.c with the sources for your library (just copy them in the folder).
 If you library has an include folder, copy that too.
 Then go to the premake5.lua file in the game folder, and link your library by calling link_to with the folder name for the library.

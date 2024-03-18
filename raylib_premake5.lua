@@ -34,6 +34,7 @@ function platform_defines()
         disablewarnings {"deprecated-declarations"}
 
     filter {"system:linux"}
+        defines {"_GLFW_X11"}
         defines {"_GNU_SOURCE"}
 -- This is necessary, otherwise compilation will fail since
 -- there is no CLOCK_MONOTOMIC. raylib claims to have a workaround

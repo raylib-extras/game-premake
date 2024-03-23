@@ -76,7 +76,7 @@ function link_raylib()
 
     filter "system:windows"
         defines{"_WIN32"}
-        links {"winmm", "kernel32", "gdi32"}
+        links {"winmm", "gdi32"}
         libdirs {"../bin/%{cfg.buildcfg}"}
 
     filter "system:linux"

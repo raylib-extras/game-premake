@@ -30,6 +30,7 @@ project (baseName)
     files {"**.hpp", "**.h", "**.cpp","**.c"}
 
     includedirs { "./" }
+    includedirs { "./src" }
     includedirs { "./include" }
 
     include_raylib()

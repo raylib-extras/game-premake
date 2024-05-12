@@ -13,15 +13,6 @@ If you clone the repository, you may want to remove the stored history. Simply d
 
 Rename the directory whatever you want. This will be the name of your game.
 
-# (Optional) Get Raylib
-If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.
-
-## Download Raylib
-Get the raylib sources from 
-https://github.com/raysan5/raylib
-Download the zip file, or clone the repository. It doesn't matter what one you use.
-Put the raylib sources in a folder called raylib inside your game folder (The same folder this file is in). The folder must be named raylib, it can not be raylib-master. The raylib folder should contain all the sources from raylib (including the 'src' folder)
-
 # Example app
 This repository is pre-populated wit the raylib game template. It is a great starting point for your game.
 https://github.com/raysan5/raylib-game-template
@@ -34,12 +25,15 @@ By default this process is setup to build a project using C. If you want to use 
 # Generate Projects
 For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.
 Only do ONE of these options depending on your compiler and platform.
-## Windows Users
+## Visual Studio (MSVC) Users
 Visual Studio users should run
 
     premake-VisualStudio.bat
 	
 This will generate a Visual Studio project.
+
+## Visual Studio Code (VSC) Users
+Visual Studio code uses the makefile systems for MinGW-w64, gcc, or clang on Windows, linux, and OSX respectivly. Simply follow the steps below for your OS and then continue to the VSC section below. Please make sure that you have the C/C++ extensions installed for VSC. Please make sure your compiler is in your path in order to use Visual Studio Code.
 	
 ## MinGW-w64 Users
 Please make sure you have a recent version of MinGW-W64. The older versons from mingw.org will not work.
@@ -66,9 +60,9 @@ cd to the root folder and run
 	
 This will generate a makefile for you.
 
-
 # Build your game
 Only do ONE of these options depending on your compiler and platform.
+
 ## Visual Studio (MSVC) Users
 Double click the .sln file that was generated in the folder. From here you can use the project as normal.
 
@@ -113,6 +107,15 @@ link_to("LIB_FOLDER_NAME")
 
 Rerun premake and it will build your library for you.
 Note that by default link_to will add include dirs for your library folder and library/include. If you have other include needs you will have to add those to your premake file manually.
+
+# (Optional) Get Raylib
+If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.
+
+## Download Raylib
+Get the raylib sources from 
+https://github.com/raysan5/raylib
+Download the zip file, or clone the repository. It doesn't matter what one you use.
+Put the raylib sources in a folder called raylib inside your game folder (The same folder this file is in). The folder must be named raylib, it can not be raylib-master. The raylib folder should contain all the sources from raylib (including the 'src' folder)
 
 # License
 Copyright (c) 2020-2024 Jeffery Myers

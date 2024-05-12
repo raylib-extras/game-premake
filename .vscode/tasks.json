@@ -19,7 +19,8 @@
             },
             "problemMatcher": [
                 "$gcc"
-            ]
+            ],
+            "dependsOn":["UpdateMake"]
         },
         {
             "label": "build release",
@@ -45,7 +46,31 @@
             "group": "build",
             "problemMatcher": [
                 "$gcc"
-            ]
+            ],
+            "dependsOn":["UpdateMake"]
+        },
+        {
+            "label": "UpdateMake",
+            "type": "process",
+            "windows": {
+                "command": "premake5.exe",
+                "args": [
+                    "gmake2"
+                ],
+            },
+            "linux": {
+                "command": "premake5",
+                "args": [
+                    "gmake2"
+                ],
+            },
+            "osx": {
+                "command": "premake5.osx",
+                "args": [
+                    "gmake2"
+                ],
+            },
+            "group": "build"
         }
     ]
 }

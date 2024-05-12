@@ -51,7 +51,7 @@ Run the batch file.
     premake-mingw.bat
 
 This will generate a makefile for you
-	
+
 ## Linux users
 cd to the root folder and run
 
@@ -66,11 +66,15 @@ cd to the root folder and run
 	
 This will generate a makefile for you.
 
+
 # Build your game
 Only do ONE of these options depending on your compiler and platform.
-## Windows Users
+## Visual Studio (MSVC) Users
 Double click the .sln file that was generated in the folder. From here you can use the project as normal.
-	
+
+#Visual Studio Code (VSC) Users
+Game-premake comes with a visual studio code project file, simply open the folder in vscode and it should be setup to run the makefiles build for gcc or MinGW-w64. Just use the build, debug, or run functions in VSC
+
 ## MinGW-w64 Users
 Open your compiler terminal (w64devkit if you are using it), change to the game folder and type 
 

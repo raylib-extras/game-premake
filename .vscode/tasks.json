@@ -29,18 +29,15 @@
             "windows": {
                 "command": "mingw32-make.exe",
                 "args": [
-                    "SHELL=cmd",
-                    "config=release"
+                    "SHELL=cmd"
                 ],
             },
             "linux": {
                 "args": [
-                    "config=release"
                 ],
             },
             "osx": {
                 "args": [
-                    "config=release"
                 ],
             },
             "group": "build",

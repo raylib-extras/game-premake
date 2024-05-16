@@ -29,11 +29,13 @@
             "windows": {
                 "command": "mingw32-make.exe",
                 "args": [
-                    "SHELL=cmd"
+                    "SHELL=cmd",
+                    "config=release_x64"
                 ],
             },
             "linux": {
                 "args": [
+                    "config=release_x64"
                 ],
             },
             "osx": {
@@ -49,23 +51,18 @@
         {
             "label": "UpdateMake",
             "type": "process",
+            "command": "./premake5",
+            "args": [
+                "gmake2"
+            ],
             "windows": {
-                "command": "premake5.exe",
-                "args": [
-                    "gmake2"
-                ],
+                "command": "./premake5.exe"
             },
             "linux": {
-                "command": "premake5",
-                "args": [
-                    "gmake2"
-                ],
+                "command": "./premake5"
             },
             "osx": {
-                "command": "premake5.osx",
-                "args": [
-                    "gmake2"
-                ],
+                "command": "./premake5.osx"
             },
             "group": "build"
         }

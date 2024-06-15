@@ -30,6 +30,12 @@ function platform_defines()
     filter {"options:graphics=opengl11"}
         defines{"GRAPHICS_API_OPENGL_11"}
 
+    filter {"options:graphics=openges3"}
+        defines{"GRAPHICS_API_OPENGL_ES3"}
+
+    filter {"options:graphics=openges2"}
+        defines{"GRAPHICS_API_OPENGL_ES2"}
+
     filter {"system:macosx"}
         disablewarnings {"deprecated-declarations"}
 

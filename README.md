@@ -96,6 +96,12 @@ If you need to build for a different OpenGL version than the default (OpenGL 3.3
 ## For OpenGL 4.3
 --graphics=opengl43
 
+## For OpenGLES 2.0
+--graphics=opengles2
+
+## For OpenGLES 3.0
+--graphics=opengles3
+
 # Building extra libs
 If you need to add a separate library to your game you can do that very easily.
 Simply copy the extras/example_library folder and rename it to what you want your lib to be called.

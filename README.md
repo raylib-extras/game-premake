@@ -1,5 +1,5 @@
 # Raylib Setup using Premake5
-This is a simplified set of instructions for how to setup a project using premake.
+This is a simplified set of instructions for how to set up a project using premake.
 
 ## Video Tutorial
 A video covering this process is here
@@ -8,22 +8,22 @@ https://youtu.be/--gI9083QnU
 # Download this repository
 Download the game premake repository from 
 https://github.com/raylib-extras/game-premake/
-You can either download the zip file, or clone the repository.
+You can either download the zip file or clone the repository.
 If you clone the repository, you may want to remove the stored history. Simply delete the .git directory to do this.
 
 Rename the directory whatever you want. This will be the name of your game.
 
 # Example app
-This repository is pre-populated wit the raylib game template. It is a great starting point for your game.
+This repository is pre-populated with the raylib game template. It is a great starting point for your game.
 https://github.com/raysan5/raylib-game-template
 
-If you want to have a different starting point, simply replace the files in the game folder with your own files.
+If you want to have a different starting point, simply replace the files in the game folder with your files.
 
 ## Using C++
-By default this process is setup to build a project using C. If you want to use C++, you can replace your files with your own cpp files. There is is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
+By default, this process is set up to build a project using C. If you want to use C++, you can replace your files with your cpp files. There is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
 
 # Generate Projects
-For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.
+For Windows users, there are two batch files you can use depending on what compiler you are using. For Linux users, you can simply use a terminal.
 Only do ONE of these options depending on your compiler and platform.
 ## Visual Studio (MSVC) Users
 Visual Studio users should run
@@ -33,10 +33,10 @@ Visual Studio users should run
 This will generate a Visual Studio project.
 
 ## Visual Studio Code (VSC) Users
-Visual Studio code uses the makefile systems for MinGW-w64, gcc, or clang on Windows, linux, and OSX respectivly. Simply follow the steps below for your OS and then continue to the VSC section below. Please make sure that you have the C/C++ extensions installed for VSC. Please make sure your compiler is in your path in order to use Visual Studio Code.
+Visual Studio code uses the makefile systems for MinGW-w64, GCC, or clang on Windows, Linux, and OSX respectively. Simply follow the steps below for your OS and then continue to the VSC section below. Please make sure that you have the C/C++ extensions installed for VSC. Please make sure your compiler is in your path to use Visual Studio Code.
 	
 ## MinGW-w64 Users
-Please make sure you have a recent version of MinGW-W64. The older versons from mingw.org will not work.
+Please make sure you have a recent version of MinGW-W64. The older versions from mingw.org will not work.
 We recommend the W64Devkit. It has everything needed to build raylib. It can be downloaded from here https://github.com/skeeto/w64devkit/releases
 
 Once you have MinGW-W64
@@ -64,20 +64,20 @@ This will generate a makefile for you.
 Only do ONE of these options depending on your compiler and platform.
 
 ## Visual Studio (MSVC) Users
-Double click the .sln file that was generated in the folder. From here you can use the project as normal.
+Double-click the .sln file that was generated in the folder. From here you can use the project as normal.
 
 #Visual Studio Code (VSC) Users
-Game-premake comes with a visual studio code project file, simply open the folder in vscode and it should be setup to run the makefiles build for gcc or MinGW-w64. Just use the build, debug, or run functions in VSC
+Game-premake comes with a visual studio code project file, simply open the folder in Visual Studio Code and it should be set up to run the makefiles build for GCC or MinGW-w64. Just use the build, debug, or run functions in VSC
 
 ## MinGW-w64 Users
-Open your compiler terminal (w64devkit if you are using it), change to the game folder and type.
+Open your compiler terminal (w64devkit if you are using it), change to the game folder, and type.
 
     make
 	
 This will build your game
 	
 ## Linux/macOS users
-Open your terminal, change to the root folder and type.
+Open your terminal, change to the root folder, and type.
 
     make
 	
@@ -85,7 +85,7 @@ This will build your starting game template.
 	
 	
 # Building for other OpenGL targets
-If you need to build for a different OpenGL version than the default (OpenGL 3.3) you can specify an openGL version in your premake command line. Just modify the bat file or add the following to your command line.
+If you need to build for a different OpenGL version than the default (OpenGL 3.3) you can specify an OpenGL version in your premake command line. Just modify the bat file or add the following to your command line.
 
 ## For OpenGL 1.1
 --graphics=opengl11
@@ -106,7 +106,7 @@ If you need to build for a different OpenGL version than the default (OpenGL 3.3
 If you need to add a separate library to your game you can do that very easily.
 Simply copy the extras/example_library folder and rename it to what you want your lib to be called.
 Replace lib.c with the sources for your library (just copy them in the folder).
-If you library has an include folder, copy that too.
+If your library has an included folder, copy that too.
 Then go to the premake5.lua file in the game folder, and link your library by calling link_to with the folder name for the library.
 
 link_to("LIB_FOLDER_NAME")
@@ -115,7 +115,7 @@ Rerun premake and it will build your library for you.
 Note that by default link_to will add include dirs for your library folder and library/include. If you have other include needs you will have to add those to your premake file manually.
 
 # (Optional) Get Raylib
-If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.
+If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and Premake will download raylib for you.
 
 ## Download Raylib
 Get the raylib sources from 
@@ -127,7 +127,7 @@ Put the raylib sources in a folder called raylib inside your game folder (The sa
 Copyright (c) 2020-2024 Jeffery Myers
 
 This software is provided "as-is", without any express or implied warranty. In no event 
-will the authors be held liable for any damages arising from the use of this software.
+will the authors be held liable for any damages arising from the use of this software?
 
 Permission is granted to anyone to use this software for any purpose, including commercial 
 applications, and to alter it and redistribute it freely, subject to the following restrictions:

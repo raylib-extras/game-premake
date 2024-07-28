@@ -20,7 +20,7 @@ https://github.com/raysan5/raylib-game-template
 If you want to have a different starting point, simply replace the files in the game folder with your own files.
 
 ## Using C++
-By default this process is setup to build a project using C. If you want to use C++, you can replace your files with your own cpp files. There is is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
+By default this process is setup to build a project using C. If you want to use C++, you can replace the .c and .h files in game/src with your own cpp files. There is is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
 
 # Generate Projects
 For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.

@@ -1,5 +1,8 @@
 # Raylib Setup using Premake5
-This is a simplified set of instructions for how to setup a project using premake.
+This is a template system for building cross platform raylib projects using premake. It is focused on intermediate to advanced users.
+for a simple template, please see Raylib-QuickStart
+
+  * https://github.com/raylib-extras/raylib-quickstart
 
 ## Video Tutorial
 A video covering this process is here

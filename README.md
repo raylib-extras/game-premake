@@ -17,13 +17,7 @@ If you clone the repository, you may want to remove the stored history. Simply d
 Rename the directory whatever you want. This will be the name of your game.
 
 # Example app
-This repository is pre-populated wit the raylib game template. It is a great starting point for your game.
-https://github.com/raysan5/raylib-game-template
-
-If you want to have a different starting point, simply replace the files in the game folder with your own files.
-
-## Using C++
-By default this process is setup to build a project using C. If you want to use C++, you can replace the .c and .h files in game/src with your own cpp files. There is is a simple C++ file in the extras/app_cpp dir. The raylib template is designed for C, not C++, but the version in this repository has been modified to work as C++ if you choose to rename the files.
+This repository is pre-populated with a simple C++ starting application that uses external headers and a static library, simply as an example of how to set them up.
 
 # Generate Projects
 For windows users, there are two batch files you can use depending on what compiler you are using. For linux users you can simply use a terminal.

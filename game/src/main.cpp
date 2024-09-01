@@ -3,8 +3,6 @@ Raylib example file.
 This is an example main file for a simple raylib project.
 Use this as a starting point or replace it with your code.
 
-For a C++ project simply rename the file to .cpp and run premake 
-
 -- Copyright (c) 2020-2024 Jeffery Myers
 --
 --This software is provided "as-is", without any express or implied warranty. In no event 
@@ -25,25 +23,55 @@ For a C++ project simply rename the file to .cpp and run premake
 */
 
 #include "raylib.h"
+#include "raymath.h"
 
-int main ()
+#include "game.h"   // an external header in this project
+#include "lib.h"	// an external header in the static lib project
+
+
+void GameInit()
 {
-	// set up the window
-	InitWindow(1280, 800, "Hello Raylib");
-	
-	// game loop
-	while (!WindowShouldClose())
-	{
-		// drawing
-		BeginDrawing();
-		ClearBackground(BLACK);
+    SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
+    InitWindow(InitalWidth, InitalHeight, "Example");
+    SetTargetFPS(144);
 
-		DrawText("Hello Raylib", 200,200,20,WHITE);
-		
-		EndDrawing();
-	}
+    // load resources
+}
 
-	// cleanup
-	CloseWindow();
-	return 0;
+void GameCleanup()
+{
+    // unload resources
+
+    CloseWindow();
+}
+
+bool GameUpdate()
+{
+    return true;
+}
+
+void GameDraw()
+{
+    BeginDrawing();
+    ClearBackground(DARKGRAY);
+
+    DrawText("Hello Raylib!", 10, 10, 20, GetTextColor());
+
+    EndDrawing();
+}
+
+int main()
+{
+    GameInit();
+
+    while (!WindowShouldClose())
+    {
+        if (!GameUpdate())
+            break;
+
+        GameDraw();
+    }
+    GameCleanup();
+
+    return 0;
 }

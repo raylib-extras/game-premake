@@ -17,7 +17,7 @@
 
 baseName = path.getbasename(os.getcwd());
 
-project (baseName)
+project (workspaceName)
     kind "ConsoleApp"
     location "./"
     targetdir "../bin/%{cfg.buildcfg}"

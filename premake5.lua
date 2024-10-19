@@ -63,6 +63,61 @@ function check_raylib()
     end
 end
 
+function use_library(libraryName, githubFolder)
+    libFolder = libraryName .. "-main"
+    zipFile = libFolder .. ".zip"
+
+    baseName = path.getbasename(os.getcwd());
+
+    links(libraryName);
+    includedirs {"../" .. libFolder .. "/" }
+    includedirs {"../" .. libFolder .."/src/" }
+    includedirs {"../" .. libFolder .."/include/" }
+    
+
+    os.chdir("..")
+    
+    if(os.isdir(libFolder) == false) then
+        if(not os.isfile(zipFile)) then
+            print(libraryName .. " not found, downloading from github")
+            local result_str, response_code = http.download("https://github.com/" .. githubFolder .. "/archive/refs/heads/main.zip", zipFile, {
+                progress = download_progress,
+                headers = { "From: Premake", "Referer: Premake" }
+            })
+        end
+        print("Unzipping to " ..  os.getcwd())
+        zip.extract(zipFile, os.getcwd())
+        os.remove(zipFile)
+    end
+
+    os.chdir(libFolder)
+    
+    project (libraryName)
+        kind "StaticLib"
+        location "./"
+        targetdir "../bin/%{cfg.buildcfg}"
+
+        filter "action:vs*"
+            buildoptions { "/experimental:c11atomics" }
+
+        vpaths 
+        {
+            ["Header Files/*"] = { "include/**.h", "include/**.hpp",  "**.h", "**.hpp"},
+            ["Source Files/*"] = { "src/**.cpp", "src/**.c", "**.cpp",  "**.c"},
+        }
+        files {"include/**.hpp", "include/**.h","src/**.hpp", "src/**.h", "src/**.cpp", "src/**.c"}
+
+        includedirs { "./" }
+        includedirs { "./src" }
+        includedirs { "./include" }
+
+    os.chdir(baseName)
+end
+
+function use_Box2dV3()
+    use_library("box2d", "erincatto/box2d")
+end
+
 workspaceName = path.getbasename(os.getcwd())
 
 if (string.lower(workspaceName) == "raylib") then
@@ -99,7 +154,7 @@ workspace (workspaceName)
         startproject(workspaceName)
     end
 
-cdialect "C99"
+cdialect "C17"
 cppdialect "C++17"
 check_raylib();
 

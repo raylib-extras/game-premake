@@ -35,8 +35,20 @@ project (workspaceName)
     {
         ["Header Files/*"] = { "include/**.h",  "include/**.hpp", "src/**.h", "src/**.hpp", "**.h", "**.hpp"},
         ["Source Files/*"] = {"src/**.c", "src/**.cpp","**.c", "**.cpp"},
+        ["Application Resource Files/*"] = {"src/**.rc", "src/**.ico"},
     }
     files {"**.c", "**.cpp", "**.h", "**.hpp"}
+
+    filter "system:windows"
+        files {"src/**.rc", "src/**.ico"}
+        resincludedirs { "src/**" }
+    filter{}
+
+    filter "files:**.ico"
+        buildaction "Embed"
+		
+    filter{}
+
   
     includedirs { "./" }
     includedirs { "src" }

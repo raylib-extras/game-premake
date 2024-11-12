@@ -99,17 +99,15 @@ If you need to build for a different OpenGL version than the default (OpenGL 3.3
 ## For OpenGLES 3.0
 --graphics=opengles3
 
-# Building extra libs
-If you need to add a separate library to your game you can do that very easily.
-Simply copy the extras/example_library folder and rename it to what you want your lib to be called.
-Replace lib.c with the sources for your library (just copy them in the folder).
-If you library has an include folder, copy that too.
-Then go to the premake5.lua file in the game folder, and link your library by calling link_to with the folder name for the library.
+# Changing the static libs
+The example template uses a sample static lib. If you want to rename it or duplicate it, you can. Just be sure to change the link_to line in the premake5.lua file in the game folder. It needs to point the correct folder.
 
 link_to("LIB_FOLDER_NAME")
 
 Rerun premake and it will build your library for you.
 Note that by default link_to will add include dirs for your library folder and library/include. If you have other include needs you will have to add those to your premake file manually.
+
+If you do not want a static library, simply remove the link_to line from your lua script
 
 # (Optional) Get Raylib
 If you wish to use a specific version of raylib, follow the instructions below. If you want the current development version, skip this section and premake will download raylib for you.

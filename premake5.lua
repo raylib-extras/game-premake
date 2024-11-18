@@ -127,7 +127,7 @@ if (string.lower(workspaceName) == "raylib") then
 end
 
 workspace (workspaceName)
-    configurations { "Debug", "Release"}
+    configurations { "Debug", "Release", "Debug_RGFW", "Release_RGFW"}
     platforms { "x64", "x86", "ARM64"}
 
     defaultplatform ("x64")

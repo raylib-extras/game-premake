@@ -16,7 +16,11 @@
 --  3. This notice may not be removed or altered from any source distribution.
 
 function platform_defines()
-    defines{"PLATFORM_DESKTOP"}
+    filter {"configurations:Debug or Release"}
+        defines{"PLATFORM_DESKTOP"}
+
+    filter {"configurations:Debug_RGFW or Release_RGFW"}
+        defines{"PLATFORM_DESKTOP_RGFW"}
 
     filter {"options:graphics=opengl43"}
         defines{"GRAPHICS_API_OPENGL_43"}
@@ -82,7 +86,7 @@ function link_raylib()
 
     filter "system:windows"
         defines{"_WIN32"}
-        links {"winmm", "gdi32"}
+        links {"winmm", "gdi32", "opengl32"}
         libdirs {"../bin/%{cfg.buildcfg}"}
 
     filter "system:linux"

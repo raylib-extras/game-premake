@@ -104,12 +104,12 @@ function link_raylib()
     filter {"options:backend=SDL2"}
         includedirs {"../SDL2/include" }
 
-    filter { "system:windows", "options:backend=SDL2",  "configurations:Debug OR configurations:Release", "platforms:x64"}
+    filter { "system:windows", "options:backend=SDL2", "platforms:x64"}
         libdirs {"../SDL2/lib/x64"}
         links {"SDL2"}
         postbuildcommands { "{COPYFILE} ../SDL2/lib/x64/*.dll %{cfg.targetdir}" }
 
-    filter { "system:windows", "options:backend=SDL2",  "configurations:Debug OR configurations:Release", "platforms:x32"}
+    filter { "system:windows", "options:backend=SDL2", "platforms:x32"}
         libdirs {"../SDL2/lib/x32"}
         links {"SDL2"}
         postbuildcommands { "{COPYFILE} ../SDL2/lib/x32/*.dll %{cfg.targetdir}" }

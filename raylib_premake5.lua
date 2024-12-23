@@ -16,11 +16,17 @@
 --  3. This notice may not be removed or altered from any source distribution.
 
 function platform_defines()
-    filter {"configurations:Debug or Release"}
+     filter {"options:backend=GLFW"}
         defines{"PLATFORM_DESKTOP"}
 
-    filter {"configurations:Debug_RGFW or Release_RGFW"}
+    filter {"options:backend=RLFW"}
         defines{"PLATFORM_DESKTOP_RGFW"}
+
+    filter {"options:backend=SDL2"}
+        defines{"PLATFORM_DESKTOP_SDL"}
+
+    filter {"options:backend=SDL3"}
+        defines{"PLATFORM_DESKTOP_SDL"}
 
     filter {"options:graphics=opengl43"}
         defines{"GRAPHICS_API_OPENGL_43"}
@@ -95,6 +101,22 @@ function link_raylib()
     filter "system:macosx"
         links {"OpenGL.framework", "Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}
 
+    filter {"options:backend=SDL2"}
+        includedirs {"../SDL2/include" }
+
+    filter { "system:windows", "options:backend=SDL2",  "configurations:Debug OR configurations:Release", "platforms:x64"}
+        libdirs {"../SDL2/lib/x64"}
+        links {"SDL2"}
+        postbuildcommands { "{COPYFILE} ../SDL2/lib/x64/*.dll %{cfg.targetdir}" }
+
+    filter { "system:windows", "options:backend=SDL2",  "configurations:Debug OR configurations:Release", "platforms:x32"}
+        libdirs {"../SDL2/lib/x32"}
+        links {"SDL2"}
+        postbuildcommands { "{COPYFILE} ../SDL2/lib/x32/*.dll %{cfg.targetdir}" }
+
+    filter { "system:*nix OR system:macosx", "options:backend=SDL2",  "configurations:Debug OR configurations:Release"}
+        links {"SDL2"}
+
     filter{}
 end
 
@@ -120,6 +142,9 @@ project "raylib"
     location (raylib_dir)
     language "C"
     targetdir "bin/%{cfg.buildcfg}"
+
+    filter {"options:backend=SDL2"}
+        includedirs {"SDL2/include" }
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}

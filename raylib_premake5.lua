@@ -103,9 +103,10 @@ function link_raylib()
 
     filter {"options:backend=SDL2"}
         includedirs {"../SDL2/include" }
-		
+
      filter {"options:backend=SDL3"}
         includedirs {"../SDL3/include/SDL3" }
+        includedirs {"../SDL3/include" }
 
     filter { "system:windows", "options:backend=SDL2", "platforms:x64"}
         libdirs {"../SDL2/lib/x64"}
@@ -129,6 +130,9 @@ function link_raylib()
 
     filter { "system:*nix OR system:macosx", "options:backend=SDL2",  "configurations:Debug OR configurations:Release"}
         links {"SDL2"}
+
+    filter { "system:*nix OR system:macosx", "options:backend=SDL3",  "configurations:Debug OR configurations:Release"}
+        links {"SDL3"}
 
     filter{}
 end

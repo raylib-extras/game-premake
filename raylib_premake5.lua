@@ -103,6 +103,9 @@ function link_raylib()
 
     filter {"options:backend=SDL2"}
         includedirs {"../SDL2/include" }
+		
+     filter {"options:backend=SDL3"}
+        includedirs {"../SDL3/include/SDL3" }
 
     filter { "system:windows", "options:backend=SDL2", "platforms:x64"}
         libdirs {"../SDL2/lib/x64"}
@@ -113,6 +116,16 @@ function link_raylib()
         libdirs {"../SDL2/lib/x32"}
         links {"SDL2"}
         postbuildcommands { "{COPYFILE} ../SDL2/lib/x32/*.dll %{cfg.targetdir}" }
+
+    filter { "system:windows", "options:backend=SDL3", "platforms:x64"}
+        libdirs {"../SDL3/lib/x64"}
+        links {"SDL3"}
+        postbuildcommands { "{COPYFILE} ../SDL3/lib/x64/*.dll %{cfg.targetdir}" }
+
+    filter { "system:windows", "options:backend=SDL3", "platforms:x32"}
+        libdirs {"../SDL3/lib/x32"}
+        links {"SDL3"}
+        postbuildcommands { "{COPYFILE} ../SDL3/lib/x32/*.dll %{cfg.targetdir}" }
 
     filter { "system:*nix OR system:macosx", "options:backend=SDL2",  "configurations:Debug OR configurations:Release"}
         links {"SDL2"}
@@ -145,6 +158,10 @@ project "raylib"
 
     filter {"options:backend=SDL2"}
         includedirs {"SDL2/include" }
+
+     filter {"options:backend=SDL3"}
+        includedirs {"SDL3/include/SDL3" }
+        includedirs {"SDL3/include" }
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}

@@ -82,6 +82,9 @@ function link_raylib()
     includedirs {"../" .. raylib_dir .."/src/external" }
     includedirs {"../" .. raylib_dir .."/src/external/glfw/include" }
     platform_defines()
+    
+    filter "files:**.dll"
+        buildaction "Copy"
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}
@@ -104,29 +107,37 @@ function link_raylib()
     filter {"options:backend=SDL2"}
         includedirs {"../SDL2/include" }
 
-     filter {"options:backend=SDL3"}
-        includedirs {"../SDL3/include/SDL3" }
-        includedirs {"../SDL3/include" }
-
     filter { "system:windows", "options:backend=SDL2", "platforms:x64"}
         libdirs {"../SDL2/lib/x64"}
         links {"SDL2"}
-        postbuildcommands { "{COPYFILE} ../SDL2/lib/x64/*.dll %{cfg.targetdir}" }
+        files "../SDL2/lib/x64/SDL2.dll"
 
     filter { "system:windows", "options:backend=SDL2", "platforms:x32"}
         libdirs {"../SDL2/lib/x32"}
         links {"SDL2"}
-        postbuildcommands { "{COPYFILE} ../SDL2/lib/x32/*.dll %{cfg.targetdir}" }
+        files "../SDL2/lib/x32/SDL2.dll"
 
-    filter { "system:windows", "options:backend=SDL3", "platforms:x64"}
+    filter { "system:windows", "options:backend=SDL3", "platforms:x64", "action:vs*"}
+        includedirs {"../SDL3/include/SDL3" }
+        includedirs {"../SDL3/include" }
         libdirs {"../SDL3/lib/x64"}
         links {"SDL3"}
-        postbuildcommands { "{COPYFILE} ../SDL3/lib/x64/*.dll %{cfg.targetdir}" }
-
-    filter { "system:windows", "options:backend=SDL3", "platforms:x32"}
+        files "../SDL3/lib/x64/SDL3.dll"
+        
+    filter { "system:windows", "options:backend=SDL3", "platforms:x32", "action:vs*"}
+        includedirs {"../SDL3/include/SDL3" }
+        includedirs {"../SDL3/include" }
         libdirs {"../SDL3/lib/x32"}
         links {"SDL3"}
-        postbuildcommands { "{COPYFILE} ../SDL3/lib/x32/*.dll %{cfg.targetdir}" }
+        files "../SDL3/lib/x32/SDL3.dll"
+ 
+    filter { "system:windows", "options:backend=SDL3", "platforms:x64", "action:gmake*"}
+        includedirs {"../SDL3/x86_64-w64-mingw32/include/SDL3" }
+        includedirs {"../SDL3/x86_64-w64-mingw32/include" }
+        libdirs {"../SDL3/x86_64-w64-mingw32/lib/"}
+        libdirs {"../SDL3/x86_64-w64-mingw32/bin/"}
+        links {"SDL3"}
+        files "../SDL3/x86_64-w64-mingw32/bin/SDL3.dll"
 
     filter { "system:*nix OR system:macosx", "options:backend=SDL2",  "configurations:Debug OR configurations:Release"}
         links {"SDL2"}
@@ -163,9 +174,13 @@ project "raylib"
     filter {"options:backend=SDL2"}
         includedirs {"SDL2/include" }
 
-     filter {"options:backend=SDL3"}
+     filter {"options:backend=SDL3", "action:vs*"}
         includedirs {"SDL3/include/SDL3" }
         includedirs {"SDL3/include" }
+        
+    filter { "system:windows", "options:backend=SDL3", "platforms:x64", "action:gmake*"}
+        includedirs {"SDL3/x86_64-w64-mingw32/include/SDL3" }
+        includedirs {"SDL3/x86_64-w64-mingw32/include" }
 
     filter "action:vs*"
         defines{"_WINSOCK_DEPRECATED_NO_WARNINGS", "_CRT_SECURE_NO_WARNINGS"}

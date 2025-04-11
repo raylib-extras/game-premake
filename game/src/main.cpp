@@ -32,7 +32,7 @@ Use this as a starting point or replace it with your code.
 void GameInit()
 {
     SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_RESIZABLE);
-    InitWindow(InitalWidth, InitalHeight, "Example");
+    InitWindow(InitialWidth, InitialHeight, "Example");
     SetTargetFPS(144);
 
     // load resources

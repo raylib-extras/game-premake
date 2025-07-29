@@ -46,14 +46,14 @@ This will generate a makefile for you.
 ## Linux users
 cd to the root folder and run
 
-    ./premake5 gmake2
+    ./premake5 gmake
 
 This will generate a makefile for you.
 
 ## macOS users
 cd to the root folder and run
 
-    ./premake5.osx gmake2
+    ./premake5.osx gmake
 	
 This will generate a makefile for you.
 

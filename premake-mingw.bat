@@ -1,1 +1,1 @@
-premake5.exe gmake2 || pause
+premake5.exe gmake || pause

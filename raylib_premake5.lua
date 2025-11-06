@@ -174,7 +174,10 @@ project "raylib"
     filter {"options:backend=SDL2"}
         includedirs {"SDL2/include" }
 
-     filter {"options:backend=SDL3", "action:vs*"}
+    filter {"options:wayland=on"}
+        defines {"GLFW_LINUX_ENABLE_WAYLAND=TRUE" }
+
+    filter {"options:backend=SDL3", "action:vs*"}
         includedirs {"SDL3/include/SDL3" }
         includedirs {"SDL3/include" }
         

@@ -45,6 +45,17 @@ newoption
     default = "GLFW"
 }
 
+newoption
+{
+    trigger = "wayland",
+    value = "WAYLAND",
+    description = "build for wayland",
+    allowed = {
+        { "off", "Off"},
+        { "on", "On"}
+    },
+    default = "off"
+}
 function string.starts(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end

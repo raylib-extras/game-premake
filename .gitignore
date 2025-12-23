@@ -10,3 +10,4 @@ obj
 *.filters
 *.user
 /*.sln
+*.slnx

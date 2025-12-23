@@ -1,0 +1,23 @@
+GLFW_ICON ICON "app.ico"
+
+1 VERSIONINFO
+FILEVERSION     0,0,0,0
+PRODUCTVERSION  0,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"    // English US
+    BEGIN
+      VALUE "FileDescription", "Your Cool Game Name"
+      VALUE "FileVersion", "0.0.0"
+      VALUE "InternalName", "CoolGame"
+      VALUE "LegalCopyright", "(c) 2026 YOURNAME HERE"
+      VALUE "ProductName", "Your Cool Game Name"
+      VALUE "ProductVersion", "0.0.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252    // English US
+  END
+END

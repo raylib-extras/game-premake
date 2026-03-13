@@ -24,7 +24,7 @@ project (workspaceName)
     }
     files {"**.c", "**.cpp", "**.h", "**.hpp"}
 
-    filter "system:windows"
+    filter {"system:windows", "action:vs*"}
         files {"src/**.rc", "src/**.ico"}
         resincludedirs { "src/**" }
     filter{}

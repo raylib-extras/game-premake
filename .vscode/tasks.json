@@ -53,7 +53,7 @@
             "type": "process",
             "command": "./premake5",
             "args": [
-                "gmake2"
+                "gmake"
             ],
             "windows": {
                 "command": "./premake5.exe"

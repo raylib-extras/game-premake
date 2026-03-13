@@ -81,7 +81,7 @@ function link_raylib()
 
     filter "system:windows"
         defines{"_WIN32"}
-        links {"winmm", "gdi32", "opengl32"}
+        links {"raylib", "winmm", "gdi32"}
         libdirs {"../bin/%{cfg.buildcfg}"}
 
     filter "system:linux"
@@ -120,10 +120,9 @@ function link_raylib()
     filter { "system:windows", "options:backend=SDL3", "platforms:x64", "action:gmake*"}
         includedirs {"../SDL3/x86_64-w64-mingw32/include/SDL3" }
         includedirs {"../SDL3/x86_64-w64-mingw32/include" }
-        libdirs {"../SDL3/x86_64-w64-mingw32/lib/"}
-        libdirs {"../SDL3/x86_64-w64-mingw32/bin/"}
+        libdirs {"../SDL3/x86_64-w64-mingw32/lib"}
+        libdirs {"../SDL3/x86_64-w64-mingw32/bin"}
         links {"SDL3"}
-        files "../SDL3/x86_64-w64-mingw32/bin/SDL3.dll"
 
     filter { "system:*nix OR system:macosx", "options:backend=SDL2",  "configurations:Debug OR configurations:Release"}
         links {"SDL2"}
